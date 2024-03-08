@@ -11,9 +11,12 @@
         <div>
             <section class="bg-image" style="background-image: url('https://img.freepik.com/free-vector/topographic-map-background_23-2148583006.jpg?size=626&ext=jpg&ga=GA1.1.1395880969.1709251200&semt=ais');">
                 <br>
-                <h2 class="text-center text-light">Inicio</h2>
                 <br>
-                    <br>
+                <br>
+                <br>
+                <br>
+                <h2 class="text-center text-light">Servicios</h2>
+                <br>
                 <div class="container">
                     <div class="row">
                         <div col-sm-12>
@@ -34,12 +37,9 @@
                     </div>
                 </div>
             </section>
-            <br>
+            <br>   
         </div>
-
-        <section th:replace="~{servicio/servicios_fragmentos :: botonesAgregar}"></section>
-        <section th:replace="~{servicio/servicios_fragmentos :: agregarServicio}"></section>
-        <section th:replace="~{servicio/servicios_fragmentos :: listadoServicios}"></section>
+        <section th:replace="~{servicio/fragmentos :: listadoServicios}"></section> 
         
         <footer th:replace="~{layout/plantilla :: footer}"/>
         

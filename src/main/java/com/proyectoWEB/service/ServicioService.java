@@ -8,7 +8,13 @@ import com.proyectoWEB.domain.Servicio;
 import java.util.List;
 
 public interface ServicioService {
-    //Se obtiene un arraylist de objetos tipo Servicios
-    public List<Servicio> getServicios(boolean activos);
+
+    public List<Servicio> getServicios();
+    
+    public Servicio getServicio(Servicio servicio);
+
+    public void deleteServicio(Servicio servicio);
+    
+    public void saveServicio(Servicio servicio);
     
 }

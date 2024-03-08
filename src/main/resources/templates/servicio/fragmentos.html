@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>TechShop</title>
+    </head>
+    <body>
+        <section th:fragment="listadoServicios" id="Servicios">
+            <div class="row row-cols-3">
+                <div class="card p-2 " th:each="p : ${servicios}">
+                    <figure>
+                        <img th:src="${p.imgurl}" height="200" alt="alt"/>
+                    </figure>
+                    <div class="card-header">
+                        <h4 class="card-title">[[${p.titulo}]]</h4>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">[[${p.descripcion}]]</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

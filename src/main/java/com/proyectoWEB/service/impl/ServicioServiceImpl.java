@@ -19,8 +19,23 @@ public class ServicioServiceImpl implements ServicioService {
     private ServicioDao servicioDao;
     
     @Override
-    public List<Servicio> getServicios(boolean activos) {
+    public List<Servicio> getServicios() {
         return servicioDao.findAll();
+    }
+
+    @Override
+    public Servicio getServicio(Servicio servicio) {
+       return servicioDao.findById(servicio.getIdServicio()).orElse(null);
+    }
+
+    @Override
+    public void deleteServicio(Servicio servicio) {
+        servicioDao.delete(servicio);
+    }
+
+    @Override
+    public void saveServicio(Servicio servicio) {
+        servicioDao.save(servicio);
     }
     
 }
