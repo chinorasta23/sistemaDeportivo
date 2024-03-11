@@ -3,22 +3,31 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
     <head th:replace="~{layout/plantilla :: head}">
-        <title>TechShop</title>
+        <title>Topotec</title>
     </head>
     <body>
         <section th:fragment="listadoServicios" id="Servicios">
-            <div class="row row-cols-3">
-                <div class="card p-2 " th:each="p : ${servicios}">
-                    <figure>
-                        <img th:src="${p.imgurl}" height="200" alt="alt"/>
-                    </figure>
-                    <div class="card-header">
-                        <h4 class="card-title">[[${p.titulo}]]</h4>
-                    </div>
-                    <div class="card-body">
-                        <p class="card-text">[[${p.descripcion}]]</p>
+            <div class="container text-center">
+              <div class="row align-items-start">
+                <div class="col" th:each="p : ${servicios}">
+                    <div class="card p-2 ">
+                        <figure>
+                            <img th:src="${p.imgurl}" height="200" alt="alt"/>
+                        </figure>
+                        <div class="card-header">
+                            <h4 class="card-title">[[${p.titulo}]]</h4>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">[[${p.descripcion}]]</p>
+                        </div>
                     </div>
                 </div>
+              </div>
+            </div>
+            
+            
+            <div class="row row-cols-3">
+
             </div>
         </section>
     </body>
