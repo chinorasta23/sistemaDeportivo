@@ -16,24 +16,24 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             <div/>
         <section>
 
-            <section th:fragment="listadoServicios">
+            <section th:fragment="listadoProyectos">
                 <div class="my-5">
                     <div class="text-center">
-                        <h2>Nuestros Servicios</h2>
+                        <h2>Nuestros Proyectos</h2>
                     </div>
                     <div class="p-2">
                         <div class="row p-5 mx-4">
-                            <div th:if="${servicios == null or servicios.empty}" class="text-center">
-                                <h5 class="fst-italic fw-light">No hay servicios que mostrar...</h2>
+                            <div th:if="${proyectos == null or proyectos.empty}" class="text-center">
+                                <h5 class="fst-italic fw-light">No hay proyectos que mostrar...</h2>
                             </div>
-                            <div th:each="s : ${servicios}" class="col">
+                            <div th:each="p : ${proyectos}" class="col">
                                 <div class="col">
                                     <div class="card">
                                         <div class="card-title text-center">
-                                            <h3>[[${s.titulo}]]</h3>
+                                            <h3>[[${p.titulo}]]</h3>
                                         </div>
                                         <div class="card-body text-center">
-                                            <img th:src="${s.imgurl}" height="200" alt="alt"/>
+                                            <img th:src="${p.imgurl}" height="200" alt="alt"/>
                                         </div>
                                         <div class="card-footer text-center">
                                             <button class="btn btn-danger">Mas Informacion</button>

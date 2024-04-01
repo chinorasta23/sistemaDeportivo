@@ -1,23 +1,22 @@
 <!DOCTYPE html>
-<html
-    xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
     <head th:replace="~{layout/plantilla :: head}">
         <title>Topotec</title>
     </head>
     <body>
         
         <header th:replace="~{layout/plantilla :: header}"/>
+        
         <div>
             <section class="bg-image" style="background-image: url('https://img.freepik.com/free-vector/topographic-map-background_23-2148583006.jpg?size=626&ext=jpg&ga=GA1.1.1395880969.1709251200&semt=ais');">
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <h2 class="text-center text-light">Inicio</h2>
-                <br>
-                <div class="container">
+                
+                <div class="mt-5 pt-5">
+                   <h2 class="text-center text-light">Inicio</h2> 
+                </div>
+                
+                <div class="container pt-4">
                     <div class="row">
                         <div col-sm-12>
                             <div class="row align-items-start">
@@ -31,39 +30,42 @@
                                   <img src="https://firebasestorage.googleapis.com/v0/b/proyectoweb-b8c8b.appspot.com/o/Topo-Tec%2Fimagenes%2Ftopotec-3.jpg?alt=media&token=f0ec7f19-e39c-4557-839a-e01fec3a0913" class="rounded mx-auto d-block" alt="...">
                               </div>
                             </div>
-                            <br>
-                            <p class="text-light text-center">La empresa nace con el nombre Topografía Técnica de Construcción y Diseño Topotec S.A. Con El Paso del tiempo se renueva y cambia a TOPOTEC S.A, aunque modificó el nombre, mantiene los mismos estándares de calidad, entregando al cliente una topografía de excelencia.</p>
+                            <div class="m-5">
+                                <p class="text-light text-center">La empresa nace con el nombre Topografía Técnica de Construcción y Diseño Topotec S.A. Con El Paso del tiempo se renueva y cambia a TOPOTEC S.A, aunque modificó el nombre, mantiene los mismos estándares de calidad, entregando al cliente una topografía de excelencia.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
-            <br>
+
             <section>
-                
-                <h3 class="text-center">Información sobre nosotros</h2>
-                <br>
-                <div class="container text-center">
-                  <div class="row">
-                    <div class="col">
-                        <hr class="text-black">
-                        <h5 class="card-title">Misión</h5>
-                        <p class="card-text">Brindar a través de nuestro servicio, topografías eficiente y de calidad con los más altos estándares de innovación tecnológica.</p>                       
+                <div class="m-5">
+                    <div class="m-5">
+                        <h3 class="text-center">Información sobre nosotros</h2>
                     </div>
-                    <div class="col">
-                        <hr class="text-black">
-                        <h5 class="card-title">Año de Fundación</h5>
-                        <p class="card-text">Fundada desde el 2005.</p>
+
+
+                    <div class="container text-center">
+                      <div class="row">
+                        <div class="col">
+                            <hr class="text-black">
+                            <h5 class="card-title">Misión</h5>
+                            <p class="card-text">Brindar a través de nuestro servicio, topografías eficiente y de calidad con los más altos estándares de innovación tecnológica.</p>                       
+                        </div>
+                        <div class="col">
+                            <hr class="text-black">
+                            <h5 class="card-title">Año de Fundación</h5>
+                            <p class="card-text">Fundada desde el 2005.</p>
+                        </div>
+                        <div class="col">
+                            <hr class="text-black">
+                            <h5 class="card-title">Visión</h5>
+                            <p class="card-text">Ser una de las empresas líderes en Topografía a nivel nacional. Comprometida con nuestros clientes, y con la utilización efectiva de la tecnología.</p>
+                        </div>
+                      </div>
                     </div>
-                    <div class="col">
-                        <hr class="text-black">
-                        <h5 class="card-title">Visión</h5>
-                        <p class="card-text">Ser una de las empresas líderes en Topografía a nivel nacional. Comprometida con nuestros clientes, y con la utilización efectiva de la tecnología.</p>
-                    </div>
-                  </div>
                 </div>
-                <br>
             </section>
-            
         </div>
 
         

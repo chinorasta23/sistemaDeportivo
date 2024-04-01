@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html
     xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
     <head th:fragment="head">
         <title>Topotoec</title> 
         <meta charset="UTF-8"/>
@@ -38,13 +39,42 @@
                       <a class="nav-link text-light" th:href="@{/servicio/listado}">Servicios</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link text-light" th:href="@{/proyectos}">Proyectos</a>
+                      <a class="nav-link text-light" th:href="@{/proyectos/listado}">Proyectos</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link text-light" th:href="@{/tienda/productos}">Tienda</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link text-light" th:href="@{/contacto}">Contacto</a>
                     </li>
                   </ul>
                 </div>
+                  
+                  <ul class="navbar-nav" sec:authorize="hasRole('ROLE_ADMIN')">
+                      <li class="nav-item px-2">
+                          <a class="nav-menu-link nav-link text-light" th:href="@{/admin/panel}">Admin</a>
+                      </li>
+                  </ul>
+                  
+                 <ul class='navbar-nav' sec:authorize='!isAuthenticated()'>
+                            <li class='nav-item px-2'>
+                                <a class='nav-menu-link nav-link' th:href="@{/login}"><i class='fas fa-sign-in-alt'></i></a>
+                            </li>
+                        </ul>
+                       
+
+                  
+                        <ul class='navbar-nav' sec:authorize='isAuthenticated()'>
+                            <li class='nav-item text-white my-auto px-2'>
+                                <img th:src='@{$[session.imagenUsuario]}' alt='imagen' height='40' class='rounded-circle'/>
+                                <span sec:authentication='name'></span>
+                            </li>
+                            <li class='nav-item text-white my-auto'>
+                                <form method="post" th:action='@{/logout}'>
+                                    <button class='btn btn-dark'><i class='fas fa-sign-out-alt'></i></button>
+                                </form>
+                            </li>
+                        </ul>
               </div>
             </nav>
         </header>
