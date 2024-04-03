@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>TODO supply a title</title>
+    </head>
+    <body>
+        <section class="mt-5 text-center" th:fragment="header_imagen">
+            <div>
+                <img src="https://pbs.twimg.com/media/EYUDRqmXYAItjs1?format=jpg&name=4096x4096" class="img-fluid" alt="..." width="4000" height="1500">
+            <div/>
+        <section>
+
+            
+            <section th:fragment="filtrosProducto">
+                <div class="container">
+                    <div class="text-center my-3">
+                        <h2>Buscar un producto</h2>
+                    </div>
+                    <hr>
+                    <div class="row mt-5">
+                        <div class="col-md-4">
+                            <div class="form-outline" data-mdb-input-init>
+                              <form method="POST" th:action="@{/tienda/busqueda}">
+                              <input type="search" id="titulo" th:value="${nombre}" th:name="nombre" class="form-control" placeholder="Buscar un producto..." aria-label="Search" />
+                                  <button type="submit" class="mt-2 btn btn-danger mt-2">
+                                      <i class="fa fa-search"> Buscar</i>
+                                  </button>
+                              </form>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="row py-2">
+                            <div class="text-center">
+                                <h2>Filtrar por categoria</h2>
+                            </div>
+                            <ul class="navbar nav">
+                                <li th:each="c : ${categorias}" class="nav-item">
+                                    <button class="btn btn-primary"><a class="nav-link text-light" th:href="@{/tienda/productos/}+${c.idCategoria}">[[${c.nombre}]]</a></button>
+                                </li>
+                            </ul>
+                        </div>
+                </div>
+            </section>
+            
+            <section th:fragment="listadoProductos">
+                <div class="my-5">
+                    <div class="text-center">
+                        <h2>Nuestros Productos</h2>
+                    </div>
+                    <div class="p-2">
+                        <div class="row p-5 mx-4">
+                            <div th:if="${productos == null or productos.empty}" class="text-center">
+                                <h5 class="fst-italic fw-light">No hay productos que mostrar...</h2>
+                            </div>
+                            <div th:each="p : ${productos}" class="col">
+                                <div class="col">
+                                    <div class="card">
+                                        <div class="card-title text-center">
+                                            <h3>[[${p.nombre}]]</h3>
+                                        </div>
+                                        <div class="card-body text-center">
+                                            <img th:src="${p.imgurl}" height="200" alt="alt"/>
+                                            <div class="mt-2 pt-2 text-center">
+                                                <h6>[[${p.precio}]]</h6>
+                                                <div th:if="${p.existencias > 0}">
+                                                    <p class="text-success">En Stock ([[${p.existencias}]])</p>
+                                                </div>
+                                                <div th:if="${p.existencias == 0}">
+                                                    <p class="text-success">Sin Stock ([[${p.existencias}]])</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer text-center">
+                                            <button class="btn btn-danger"><a class="text-light nav-link" th:href="@{/tienda/producto/}+${p.idProducto}">Ver Producto</a></button>
+                                            <form>
+                                                <input type="hidden" name="idProducto" th:value="${p.idProducto}" />
+                                                <button class="btn btn-light mt-2" id="addCar" name="addCar" onclick="addCard(this.form)" type="button">
+                                                    <i class="fas fa-cart-plus"></i> Añadir al carrito
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section th:fragment="listadoBusqueda">
+                <div class="my-5">
+                    <div class="text-center">
+                        <h2>Nuestros Productos</h2>
+                    </div>
+                    <div class="p-2">
+                        <div class="row p-5 mx-4">
+                            <div th:if="${productos == null or productos.empty}" class="text-center">
+                                <h5 class="fst-italic fw-light">No se ha encontrado productos relacionados a la busqueda...</h2>
+                            </div>
+                            <div th:each="p : ${productos}" class="col">
+                                <div class="col">
+                                    <div class="card">
+                                        <div class="card-title text-center">
+                                            <h3>[[${p.nombre}]]</h3>
+                                        </div>
+                                        <div class="card-body text-center">
+                                            <img th:src="${p.imgurl}" height="200" alt="alt"/>
+                                            <div class="mt-2 pt-2 text-center">
+                                                <h6>[[${p.precio}]]</h5>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer text-center">
+                                            <button class="btn btn-danger">Mas Informacion</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section th:fragment="verProducto">
+                <div class="mt-5 pt-5 px-5">
+                    <button>
+                        <a class="nav-link btn text-dark" th:href="@{/tienda/productos}"><i class="fas fa-arrow-left"></i> Regresar</a>
+                    </button>
+                </div>
+                <div class="text-center">
+                    <h2>Ver Producto</h2>
+                </div>
+                <div class="container">
+                    <div class="row mt-5">
+                        <div class="mt-5 col-md-5">
+                            <div class="card col-md-9">
+                                <h2>[[${producto.nombre}]]</h2>
+                            </div>
+                            <div class="card col-md-9">
+                                <img th:src="${producto.imgurl}" height="400" width="400" alt="alt"/>  
+                            </div>
+                        </div>
+                        <div class="mt-5 col-md-7 px-5 pt-5">
+                            <div class="border">
+                                <div class="p-2">
+                                    <h2>Descripcion</h2>
+                                   
+                                    <div class="card m-2">
+                                        <div class="p-2 col-md-5">
+                                            <p class="text-justify">[[${producto.descripcion}]]</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="card m-2 col-md-4">
+                                        <div class="p-2">
+                                            <h6>Precio: [[${producto.precio}]]</h6>
+                                        </div>
+                                    </div>
+                                    <div class="card m-2 col-md-4">
+                                        <div class="p-2">
+                                            <h6>Existencias: ([[${producto.existencias}]])</h6>
+                                        </div>
+                                    </div>
+                                    <div class="card m-2col-md-4">
+                                        <div class="p-2">
+                                            <h6>Categoria: [[${producto.categoria.nombre}]]</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-5">
+                        
+                    </div>
+                </div>
+            </section>
+    </body>
+</html>

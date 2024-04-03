@@ -159,7 +159,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                                         <div class="mb-3">
                                                             <label for="imagen">Imagen</label>
                                                             <input class="form-control" type="file" name="imagenFile" onchange="readURL(this);"/>
-                                                            <img id="blah" src="#" alt="your image" height="200"/>
+                                                            <div class="m-2 text-center">
+                                                                <img id="blah" src="#" alt="your image" height="200"/>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer">
@@ -266,7 +268,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                                             <label for="imagen">Imagen</label>
                                                             <input class="form-control" type="file" name="imagenFile"
                                                                    onchange="readURL(this);" />
-                                                            <img id="blah" th:src="@{${servicio.imgurl}}" alt="your image" height="200"/>
+                                                            <div class="m-2 text-center">
+                                                                <img id="blah" th:src="@{${servicio.imgurl}}" alt="your image" height="200"/>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -377,7 +381,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                                         <div class="mb-3">
                                                             <label for="imagen">Imagen</label>
                                                             <input class="form-control" type="file" name="imagenFile" onchange="readURL(this);"/>
-                                                            <img id="blah" src="#" alt="your image" height="200"/>
+                                                            <div class="m-2 text-center">
+                                                                <img id="blah" src="#" alt="your image" height="200"/>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer">
@@ -484,7 +490,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                                             <label for="imagen">Imagen</label>
                                                             <input class="form-control" type="file" name="imagenFile"
                                                                    onchange="readURL(this);" />
-                                                            <img id="blah" th:src="@{${proyecto.imgurl}}" alt="your image" height="200"/>
+                                                            <div class="m-2 p-3 text-center">
+                                                                <img id="blah" th:src="@{${proyecto.imgurl}}" alt="your image" height="200"/>   
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -518,6 +526,501 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 </div>
             </div>
         </section>
+        
+        
+        <section class="mt-5 pt-5" th:fragment="adminCategorias">
+                <div class="row justify-content-center">
+                    <div class="col">
+                        <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
+                              <span class="fs-4 text-center">Admin Panel</span>
+                            <hr>
+                            <ul class="nav nav-pills flex-column">
+                              <li class="nav-item">
+                                <a th:href="@{/admin/panel}" class="nav-link bg-danger text-light my-1 text-center">Resumen</a>
+                              </li>
+                              <li>
+                                <a th:href="@{/admin/servicios}" class="nav-link bg-danger my-1 text-light text-center">Servicios</a>
+                              </li>
+                              <li>
+                                <a th:href="@{/admin/proyectos}" class="nav-link bg-danger my-1 text-light text-center">Proyectos</a>
+                              </li>
+                              <li>
+                                <a th:href="@{/admin/categorias}" class="nav-link bg-danger my-1 text-light text-center">Categorias</a>
+                              </li>
+                              <li>
+                                <a th:href="@{/admin/productos}" class="nav-link bg-danger my-1 text-light text-center">Productos</a>
+                              </li>
+                              <li>
+                                <a th:href="@{/admin/ventas}" class="nav-link bg-danger my-1 text-light text-center">Ventas</a>
+                              </li>
+                              <li>
+                                <a th:href="@{/admin/facturar}" class="nav-link bg-danger my-1 text-light text-center">Facturar</a>
+                              </li>
+                            </ul>
+                          </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="text-center">
+                            <h2>Categorias</h2>
+                        </div>
+                        
+                            <div class="container-fluid">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-3" sec:authorize="hasRole('ROLE_ADMIN')">   
+                                                <button 
+                                                    type="button" 
+                                                    class="btn btn-primary btn-block" 
+                                                    data-bs-toggle="modal" 
+                                                    data-bs-target="#agregarCategoria">
+                                                    <i class="fas fa-plus"></i> Agregar
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="agregarCategoria" 
+                                         class="modal fade" 
+                                         tabindex="-1" 
+                                         aria-labelledby="exampleModalLabel" 
+                                         aria-hidden="true">
+                                        <div class="modal-dialog modal-md">
+                                            <div class="modal-content">
+                                                <div class="modal-header bg-danger text-white">
+                                                    <h5 class="modal-title">Agregar Categoria</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div> 
+                                                <form th:action="@{/admin/categorias/guardar}" th:object="${categoria}"
+                                                      method="POST" class="was-validated" enctype="multipart/form-data">
+                                                    <div class="modal-body">
+                                                        <div class="mb-3">
+                                                            <label for="nombre">Nombre</label>
+                                                            <input type="text" class="form-control" name="nombre" required="true"/>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="imagen">Imagen</label>
+                                                            <input class="form-control" type="file" name="imagenFile" onchange="readURL(this);"/>
+                                                            <div class="m-2 text-center">
+                                                                <img id="blah" src="#" alt="your image" height="200"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button class="btn btn-primary" type="submit">Guardar</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+
+                            <table class="table table-hover my-5">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Nombre</th>         
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="categoria, contador : ${categorias}">
+                                        <td>[[${categoria.idCategoria}]]</td>
+                                        <td>[[${categoria.nombre}]]</td>
+                                        <td><a th:href="@{/admin/categorias/eliminar/}+${categoria.idCategoria}" class="btn btn-danger">
+                                                <i class="fas fa-trash"></i> Eliminar</a>
+                                            <a th:href="@{/admin/categorias/modificar/}+${categoria.idCategoria}" class="btn btn-success">
+                                                <i class="fas fa-pencil"></i> Modificar</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                       </div>
+                        
+                    </div>
+                </div>
+        </section>
+        
+        <section class="mt-5 pt-5" th:fragment="modificarCategorias">
+            <div class="row justify-content-center">
+                <div class="col">
+                    <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
+                        <span class="fs-4 text-center">Admin Panel</span>
+                        <hr>
+                            <ul class="nav nav-pills flex-column">
+                                <li class="nav-item">
+                                    <a th:href="@{/admin/panel}" class="nav-link bg-danger text-light my-1 text-center">Resumen</a>
+                                </li>
+                                <li>
+                                    <a th:href="@{/admin/servicios}" class="nav-link bg-danger my-1 text-light text-center">Servicios</a>
+                                </li>
+                                <li>
+                                    <a th:href="@{/admin/proyectos}" class="nav-link bg-danger my-1 text-light text-center">Proyectos</a>
+                                </li>
+                                <li>
+                                    <a th:href="@{/admin/categorias}" class="nav-link bg-danger my-1 text-light text-center">Categorias</a>
+                                </li>
+                                <li>
+                                    <a th:href="@{/admin/productos}" class="nav-link bg-danger my-1 text-light text-center">Productos</a>
+                                </li>
+                                <li>
+                                    <a th:href="@{/admin/ventas}" class="nav-link bg-danger my-1 text-light text-center">Ventas</a>
+                                </li>
+                                <li>
+                                    <a th:href="@{/admin/facturar}" class="nav-link bg-danger my-1 text-light text-center">Facturar</a>
+                                </li>
+                            </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-9">
+                    <div class="text-center">
+                        <h2>Modificar Categoria</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8">
+                            <form method="POST"
+                                  th:action="@{/admin/categorias/guardar}" 
+                                  th:object="${categoria}"
+                                  class="was-validated"                          
+                                  enctype="multipart/form-data">
+                                <input type="hidden" name="idCategoria" th:field="*{idCategoria}"/>
+                                <input type="hidden" name="imgurl" th:field="*{imgurl}"/>
+                                <div id=details>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="card">
+                                                    <div class="card-header text-center">
+                                                        <h4>Actualizar</h4>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="mb-3">
+                                                            <label for="nombre">Nombre</label>
+                                                            <input type="text" class="form-control" 
+                                                                   name="nombre" th:field="*{nombre}"
+                                                                   required="true">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="imagen">Imagen</label>
+                                                            <input class="form-control" type="file" name="imagenFile"
+                                                                   onchange="readURL(this);" />
+                                                            <div class="m-2 p-3 text-center">
+                                                                <img id="blah" th:src="@{${categoria.imgurl}}" alt="your image" height="200"/>   
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="container py-4 mb-4 bg-light">
+                                        <div class="row">
+                                            <div class="col-md-4 d-grid">
+                                                <a th:href="@{/admin/categorias}" class="btn btn-primary">
+                                                    <i class="fas fa-arrow-left"></i> Regresar
+                                                </a>
+                                            </div>
+                                            <div class="col-md-4 d-grid">                                
+                                                <a th:href="@{/admin/categorias/eliminar/}+${categoria.idCategoria}"
+                                                   class="btn btn-danger">
+                                                    <i class="fas fa-trash"></i> Eliminar
+                                                </a>
+                                            </div>
+                                            <div class="col-md-4 d-grid">
+                                                <button type="submit" class="btn btn-success">
+                                                    <i class="fas fa-check"></i> Guardar
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+        <section class="mt-5 pt-5" th:fragment="adminProductos">
+                <div class="row justify-content-center">
+                    <div class="col">
+                        <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
+                              <span class="fs-4 text-center">Admin Panel</span>
+                            <hr>
+                            <ul class="nav nav-pills flex-column">
+                              <li class="nav-item">
+                                <a th:href="@{/admin/panel}" class="nav-link bg-danger text-light my-1 text-center">Resumen</a>
+                              </li>
+                              <li>
+                                <a th:href="@{/admin/servicios}" class="nav-link bg-danger my-1 text-light text-center">Servicios</a>
+                              </li>
+                              <li>
+                                <a th:href="@{/admin/proyectos}" class="nav-link bg-danger my-1 text-light text-center">Proyectos</a>
+                              </li>
+                              <li>
+                                <a th:href="@{/admin/categorias}" class="nav-link bg-danger my-1 text-light text-center">Categorias</a>
+                              </li>
+                              <li>
+                                <a th:href="@{/admin/productos}" class="nav-link bg-danger my-1 text-light text-center">Productos</a>
+                              </li>
+                              <li>
+                                <a th:href="@{/admin/ventas}" class="nav-link bg-danger my-1 text-light text-center">Ventas</a>
+                              </li>
+                              <li>
+                                <a th:href="@{/admin/facturar}" class="nav-link bg-danger my-1 text-light text-center">Facturar</a>
+                              </li>
+                            </ul>
+                          </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="text-center">
+                            <h2>Productos</h2>
+                        </div>
+                        
+                            <div class="container-fluid">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-3" sec:authorize="hasRole('ROLE_ADMIN')">   
+                                                <button 
+                                                    type="button" 
+                                                    class="btn btn-primary btn-block" 
+                                                    data-bs-toggle="modal" 
+                                                    data-bs-target="#agregarProducto">
+                                                    <i class="fas fa-plus"></i> Agregar
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="agregarProducto" 
+                                         class="modal fade" 
+                                         tabindex="-1" 
+                                         aria-labelledby="exampleModalLabel" 
+                                         aria-hidden="true">
+                                        <div class="modal-dialog modal-md">
+                                            <div class="modal-content">
+                                                <div class="modal-header bg-danger text-white">
+                                                    <h5 class="modal-title">Agregar Producto</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div> 
+                                                <form th:action="@{/admin/productos/guardar}" th:object="${producto}"
+                                                      method="POST" class="was-validated" enctype="multipart/form-data">
+                                                    <div class="modal-body">
+                                                        <div class="mb-3">
+                                                            <label for="categoria">Categoria</label>
+                                                            <select class="form-select" 
+                                                                    aria-label=".form-select-sm example" 
+                                                                    name="categoria.idCategoria">
+                                                              <option th:each="c : ${categorias}" th:value="${c.idCategoria}" th:text="${c.nombre}"></option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="nombre">Nombre</label>
+                                                            <input type="text" class="form-control" name="nombre" required="true"/>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="nombre">Descripcion</label>
+                                                            <textarea class="form-control" rows="4" cols="20" name="descripcion" required="true">
+                                                            </textarea>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="precio">Precio</label>
+                                                            <input type="number" class="form-control" name="precio" required="true"/>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="existencias">Existencias</label>
+                                                            <input type="number" class="form-control" name="existencias" required="true"/>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="activo">Activo</label>
+                                                            <input class="form-check-input" type="checkbox" name="activo" id="activo"/>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="imagen">Imagen</label>
+                                                            <input class="form-control" type="file" name="imagenFile" onchange="readURL(this);"/>
+                                                            <div class="m-2 text-center">
+                                                                <img id="blah" src="#" alt="your image" height="200"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button class="btn btn-primary" type="submit">Guardar</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+
+                            <table class="table table-hover my-5">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Categoria</th>
+                                        <th>Nombre</th>       
+                                        <th>Precio</th>
+                                        <th>Existencias</th>
+                                        <th>Activo</th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="producto, contador : ${productos}">
+                                        <td>[[${producto.idProducto}]]</td>
+                                        <td>[[${producto.categoria.nombre}]]</td>
+                                        <td>[[${producto.nombre}]]</td>
+                                        <td>[[${producto.precio}]]</td>
+                                        <td>[[${producto.existencias}]]</td>
+                                        <td>
+                                            <p th:if="${producto.activo}">Activo</p>
+                                            <p th:if="${!producto.activo}">Inactivo</p>
+                                        </td>
+                                        <td><a th:href="@{/admin/productos/eliminar/}+${producto.idProducto}" class="btn btn-danger">
+                                                <i class="fas fa-trash"></i> Eliminar</a>
+                                            <a th:href="@{/admin/productos/modificar/}+${producto.idProducto}" class="btn btn-success">
+                                                <i class="fas fa-pencil"></i> Modificar</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                       </div>
+                        
+                    </div>
+                </div>
+        </section>
+        
+        <section class="mt-5 pt-5" th:fragment="modificarProductos">
+            <div class="row justify-content-center">
+                <div class="col">
+                    <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
+                        <span class="fs-4 text-center">Admin Panel</span>
+                        <hr>
+                            <ul class="nav nav-pills flex-column">
+                                <li class="nav-item">
+                                    <a th:href="@{/admin/panel}" class="nav-link bg-danger text-light my-1 text-center">Resumen</a>
+                                </li>
+                                <li>
+                                    <a th:href="@{/admin/servicios}" class="nav-link bg-danger my-1 text-light text-center">Servicios</a>
+                                </li>
+                                <li>
+                                    <a th:href="@{/admin/proyectos}" class="nav-link bg-danger my-1 text-light text-center">Proyectos</a>
+                                </li>
+                                <li>
+                                    <a th:href="@{/admin/categorias}" class="nav-link bg-danger my-1 text-light text-center">Categorias</a>
+                                </li>
+                                <li>
+                                    <a th:href="@{/admin/productos}" class="nav-link bg-danger my-1 text-light text-center">Productos</a>
+                                </li>
+                                <li>
+                                    <a th:href="@{/admin/ventas}" class="nav-link bg-danger my-1 text-light text-center">Ventas</a>
+                                </li>
+                                <li>
+                                    <a th:href="@{/admin/facturar}" class="nav-link bg-danger my-1 text-light text-center">Facturar</a>
+                                </li>
+                            </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-9">
+                    <div class="text-center">
+                        <h2>Modificar Producto</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8">
+                            <form method="POST"
+                                  th:action="@{/admin/productos/guardar}" 
+                                  th:object="${producto}"
+                                  class="was-validated"                          
+                                  enctype="multipart/form-data">
+                                <input type="hidden" name="idProducto" th:field="*{idProducto}"/>
+                                <input type="hidden" name="imgurl" th:field="*{imgurl}"/>
+                                <div id=details>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="card">
+                                                    <div class="card-header text-center">
+                                                        <h4>Actualizar</h4>
+                                                    </div>
+                                                    <div class="card-body">
+                                                         <div class="mb-3">
+                                                            <label for="categoria">Categoria</label>
+                                                            <select class="form-select" 
+                                                                    aria-label=".form-select-sm example" 
+                                                                    name="categoria.idCategoria">
+                                                              <option th:each="c : ${categorias}" th:value="${c.idCategoria}" th:text="${c.nombre}"></option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="nombre">Nombre</label>
+                                                            <input type="text" class="form-control" 
+                                                                   name="nombre" th:field="*{nombre}"
+                                                                   required="true">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="nombre">Descripcion</label>
+                                                            <textarea class="form-control" rows="4" cols="20" name="descripcion" th:field="*{descripcion}" required="true">
+                                                            </textarea>
+                                                        </div>
+                                                       <div class="mb-3">
+                                                            <label for="precio">Precio</label>
+                                                            <input type="number" class="form-control" name="precio" th:field="*{precio}" required="true"/>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="existencias">Existencias</label>
+                                                            <input type="number" class="form-control" name="existencias" th:field="*{existencias}" required="true"/>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="activo">Activo</label>
+                                                            <input class="form-check-input" type="checkbox" name="activo" th:field="*{activo}" id="activo"/>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="imagen">Imagen</label>
+                                                            <input class="form-control" type="file" name="imagenFile"
+                                                                   onchange="readURL(this);" />
+                                                            <div class="m-2 p-3 text-center">
+                                                                <img id="blah" th:src="@{${producto.imgurl}}" alt="your image" height="200"/>   
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="container py-4 mb-4 bg-light">
+                                        <div class="row">
+                                            <div class="col-md-4 d-grid">
+                                                <a th:href="@{/admin/productos}" class="btn btn-primary">
+                                                    <i class="fas fa-arrow-left"></i> Regresar
+                                                </a>
+                                            </div>
+                                            <div class="col-md-4 d-grid">                                
+                                                <a th:href="@{/admin/productos/eliminar/}+${producto.idProducto}"
+                                                   class="btn btn-danger">
+                                                    <i class="fas fa-trash"></i> Eliminar
+                                                </a>
+                                            </div>
+                                            <div class="col-md-4 d-grid">
+                                                <button type="submit" class="btn btn-success">
+                                                    <i class="fas fa-check"></i> Guardar
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+        
         
     </body>
 </html>
