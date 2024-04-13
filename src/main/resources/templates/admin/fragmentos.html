@@ -53,12 +53,35 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                         <h2>Ventas Total</h2>
                                     </div>
                                     <div class="card-body p-2 text-center">
-                                        <h2 class="border p-2">5</h2>
+                                        <h2 class="border p-2">[[${totalVentas}]]</h2>
                                     </div>
                                     <div class="card-footer text-center">
                                         <a th:href="@{/admin/ventas}" class="btn btn-danger">Ir a ventas</a>
                                     </div>
                                 </div>
+                                <div class="text-center mt-3">   
+                                    <h4>Ultimas 5 Ventas</h4>
+                                </div>
+                                    <table class="table table-hover my-3">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>ID Factura</th>         
+                                                <th>ID Producto</th>
+                                                <th>Precio</th>
+                                                <th>Cantidad</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr th:each="venta, 5 : ${ventas}">
+                                                <td>[[${venta.idVenta}]]</td>
+                                                <td>[[${venta.idFactura}]]</td>
+                                                <td>[[${venta.idProducto}]]</td>
+                                                <td>[[${venta.precio}]]</td>
+                                                <td>[[${venta.cantidad}]]</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                             </div>
                             <div class="col m-5">
                                 <div class="card">
@@ -66,12 +89,36 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                         <h2>Productos Total</h2>
                                     </div>
                                     <div class="card-body p-2 text-center">
-                                        <h2 class="border p-2">5</h2>
+                                        <h2 class="border p-2">[[${totalProductos}]]</h2>
                                     </div>
                                     <div class="card-footer text-center">
                                         <a th:href="@{/admin/productos}" class="btn btn-danger">Ir a productos</a>
                                     </div>
                                 </div>
+                                
+                                <div class="text-center mt-3">   
+                                    <h4>Ultimos 5 Productos</h4>
+                                </div>
+                                    <table class="table table-hover my-3">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Categoria</th>         
+                                                <th>Nombre</th>
+                                                <th>Precio</th>
+                                                <th>Existencias</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr th:each="producto, 5 : ${productos}">
+                                                <td>[[${producto.idProducto}]]</td>
+                                                <td>[[${producto.categoria.nombre}]]</td>
+                                                <td>[[${producto.nombre}]]</td>
+                                                <td>[[${producto.precio}]]</td>
+                                                <td>[[${producto.existencias}]]</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                             </div>
                         </div>
                         
@@ -1019,8 +1066,167 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             </div>
         </section>
         
+        <section class="mt-5 pt-5" th:fragment="adminVentas">
+                <div class="row justify-content-center">
+                    <div class="col">
+                        <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
+                              <span class="fs-4 text-center">Admin Panel</span>
+                            <hr>
+                            <ul class="nav nav-pills flex-column">
+                              <li class="nav-item">
+                                <a th:href="@{/admin/panel}" class="nav-link bg-danger text-light my-1 text-center">Resumen</a>
+                              </li>
+                              <li>
+                                <a th:href="@{/admin/servicios}" class="nav-link bg-danger my-1 text-light text-center">Servicios</a>
+                              </li>
+                              <li>
+                                <a th:href="@{/admin/proyectos}" class="nav-link bg-danger my-1 text-light text-center">Proyectos</a>
+                              </li>
+                              <li>
+                                <a th:href="@{/admin/categorias}" class="nav-link bg-danger my-1 text-light text-center">Categorias</a>
+                              </li>
+                              <li>
+                                <a th:href="@{/admin/productos}" class="nav-link bg-danger my-1 text-light text-center">Productos</a>
+                              </li>
+                              <li>
+                                <a th:href="@{/admin/ventas}" class="nav-link bg-danger my-1 text-light text-center">Ventas</a>
+                              </li>
+                              <li>
+                                <a th:href="@{/admin/facturar}" class="nav-link bg-danger my-1 text-light text-center">Facturar</a>
+                              </li>
+                            </ul>
+                          </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="text-center">
+                            <h2>Ventas</h2>
+                        </div>
+                        
+                            <div class="container-fluid">
+                            <table class="table table-hover my-5">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Factura</th>     
+                                        <th>ID Producto</th>   
+                                        <th>Precio</th>   
+                                        <th>Cantidad</th> 
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="venta, contador : ${ventas}">
+                                        <td>[[${venta.idVenta}]]</td>
+                                        <td><a th:href="@{/admin/verFactura/}+${venta.idFactura}" class="btn btn-danger">
+                                                <i class="fas fa-eye"></i> Ver Factura</a></td>
+                                        <td>[[${venta.idProducto}]]</td>
+                                        <td>[[${venta.Precio}]]</td>
+                                        <td>[[${venta.Cantidad}]]</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                       </div>
+                        
+                    </div>
+                </div>
+        </section>
         
-        
+        <section class="mt-5 pt-5" th:fragment="verFactura">
+                <div class="row justify-content-center">
+                    <div class="col">
+                        <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
+                              <span class="fs-4 text-center">Admin Panel</span>
+                            <hr>
+                            <ul class="nav nav-pills flex-column">
+                              <li class="nav-item">
+                                <a th:href="@{/admin/panel}" class="nav-link bg-danger text-light my-1 text-center">Resumen</a>
+                              </li>
+                              <li>
+                                <a th:href="@{/admin/servicios}" class="nav-link bg-danger my-1 text-light text-center">Servicios</a>
+                              </li>
+                              <li>
+                                <a th:href="@{/admin/proyectos}" class="nav-link bg-danger my-1 text-light text-center">Proyectos</a>
+                              </li>
+                              <li>
+                                <a th:href="@{/admin/categorias}" class="nav-link bg-danger my-1 text-light text-center">Categorias</a>
+                              </li>
+                              <li>
+                                <a th:href="@{/admin/productos}" class="nav-link bg-danger my-1 text-light text-center">Productos</a>
+                              </li>
+                              <li>
+                                <a th:href="@{/admin/ventas}" class="nav-link bg-danger my-1 text-light text-center">Ventas</a>
+                              </li>
+                              <li>
+                                <a th:href="@{/admin/facturar}" class="nav-link bg-danger my-1 text-light text-center">Facturar</a>
+                              </li>
+                            </ul>
+                          </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="text-center">
+                            <h2>Factura</h2>
+                        </div>
+                        
+                       <div class="container-fluid">
+                           <div class="row m-5">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="mx-2">
+                                        <h2 class="text-secondary">TopoTec S.A</h2>
+                                    </div>
+                                    <div class="m-2">
+                                        <p class="text-secondary">Direccion: Cartago, La Union, Tres Rios</p>
+                                    </div>
+                                    <hr/>
+                                    <div class="m-2">
+                                        <h2 class="text-secondary">Facturado a</h2>
+                                        <p class="text-secondary">Nombre: [[${usuario.nombre}]]</p>
+                                        <p class="text-secondary">Apellidos: [[${usuario.apellidos}]]</p>
+                                        <p class="text-secondary">Correo Electronico: [[${usuario.correo}]]</p>
+                                        <p class="text-secondary">Telefono: [[${usuario.telefono}]]</p>
+                                    </div>
+                                    <hr/>
+                                    <div class="m-2">
+                                        <h2 class="text-secondary">Información de la compra</h2>
+                                        <h4 class="text-secondary">Productos:</h4>
+                                        <div class="col-md-4">
+                                            <hr/>
+                                        </div>
+                                        
+                                        <table class="table table-hover my-5">
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-secondary">ID</th>
+                                                    <th class="text-secondary">Nombre</th>     
+                                                    <th class="text-secondary">Precio</th>   
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr th:each="p, contador : ${productos}">
+                                                    <td>[[${p.idProducto}]]</td>
+                                                    <td>[[${p.nombre}]]</td>
+                                                    <td>[[${p.precio}]]</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        
+                                        <p class="text-secondary">Fecha de compra:</p> 
+                                        <p>[[${factura.fecha}]]</p>
+                                        <p class="text-secondary">Total de la compra:</p>
+                                        <p>[[${factura.total}]]</p>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <button class="btn btn-danger"><a th:href="@{/admin/ventas}" class="btn">Regresar</a></button>
+                                </div>
+                            </div>
+                           </div>
+                       </div>
+                        
+                    </div>
+                </div>
+        </section>
         
     </body>
 </html>

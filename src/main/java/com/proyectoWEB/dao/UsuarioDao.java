@@ -14,6 +14,8 @@ public interface UsuarioDao extends JpaRepository < Usuario, Long> {
     Usuario findByUsernameAndPassword(String username, String Password);
 
     Usuario findByUsernameOrCorreo(String username, String correo);
+    
+    Usuario findByIdUsuario(int id);
 
     boolean existsByUsernameOrCorreo(String username, String correo);
     

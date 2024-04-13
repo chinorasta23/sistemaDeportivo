@@ -15,8 +15,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <img src="https://pbs.twimg.com/media/EYUDRqmXYAItjs1?format=jpg&name=4096x4096" class="img-fluid" alt="..." width="4000" height="1500">
             <div/>
         <section>
-
-            
             <section th:fragment="filtrosProducto">
                 <div class="container">
                     <div class="text-center my-3">
@@ -47,52 +45,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                         </div>
                 </div>
             </section>
-            
-            <section th:fragment="listadoProductos">
-                <div class="my-5">
-                    <div class="text-center">
-                        <h2>Nuestros Productos</h2>
-                    </div>
-                    <div class="p-2">
-                        <div class="row p-5 mx-4">
-                            <div th:if="${productos == null or productos.empty}" class="text-center">
-                                <h5 class="fst-italic fw-light">No hay productos que mostrar...</h2>
-                            </div>
-                            <div th:each="p : ${productos}" class="col">
-                                <div class="col">
-                                    <div class="card">
-                                        <div class="card-title text-center">
-                                            <h3>[[${p.nombre}]]</h3>
-                                        </div>
-                                        <div class="card-body text-center">
-                                            <img th:src="${p.imgurl}" height="200" alt="alt"/>
-                                            <div class="mt-2 pt-2 text-center">
-                                                <h6>[[${p.precio}]]</h6>
-                                                <div th:if="${p.existencias > 0}">
-                                                    <p class="text-success">En Stock ([[${p.existencias}]])</p>
-                                                </div>
-                                                <div th:if="${p.existencias == 0}">
-                                                    <p class="text-success">Sin Stock ([[${p.existencias}]])</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card-footer text-center">
-                                            <button class="btn btn-danger"><a class="text-light nav-link" th:href="@{/tienda/producto/}+${p.idProducto}">Ver Producto</a></button>
-                                            <form>
-                                                <input type="hidden" name="idProducto" th:value="${p.idProducto}" />
-                                                <button class="btn btn-light mt-2" id="addCar" name="addCar" onclick="addCard(this.form)" type="button">
-                                                    <i class="fas fa-cart-plus"></i> Añadir al carrito
-                                                </button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
+
             <section th:fragment="listadoBusqueda">
                 <div class="my-5">
                     <div class="text-center">

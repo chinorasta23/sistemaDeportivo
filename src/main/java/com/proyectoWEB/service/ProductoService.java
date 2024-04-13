@@ -18,4 +18,6 @@ public interface ProductoService {
     public void saveProducto(Producto producto);
 
     public List<Producto> busqueda(String busqueda, String descripcion);
+    
+    public Producto getProductoPorId(int id);
 }

@@ -74,4 +74,9 @@ public class UsuarioServiceImpl implements UsuarioService {
     public void delete(Usuario usuario) {
         usuarioDao.delete(usuario);
     }
+
+    @Override
+    public Usuario getUsuarioPorId(int id) {
+        return usuarioDao.findByIdUsuario(id);
+    }
 }

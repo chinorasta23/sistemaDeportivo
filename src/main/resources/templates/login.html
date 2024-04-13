@@ -27,8 +27,19 @@
                                     Contraseña</label>
                                 <input class='form-control' type="password" name="password"/>
                             </div>
-                            <div class="card-footer col text-center">
-                                <button type="submit" class="btn btn-danger"><i class="fas fa-sign-in-alt"></i> Iniciar Sesion</button>
+                            <div class="card-footer row text-center">
+                                
+                                <button class="btn btn-primary">
+                                    <a class="btn" th:href="@{/registro/nuevo}"><i class="fa fa-user-plus"></i> [[#{accion.registrar}]]</a>
+                                </button>
+                                
+                                <button class="btn btn-warning">
+                                    <a class="btn" th:href="@{/registro/recordar}"><i class="fa fa-user-plus"></i> [[#{accion.recordar}]]</a>
+                                </button>
+                                
+                                <button type="submit" class="btn btn-danger">
+                                    <span class="btn text-light"><i class="fas fa-sign-in-alt"></i> Login</span>
+                                </button>
                             </div>
                         </form>
                     </div>

@@ -4,14 +4,9 @@
  */
 package com.proyectoWEB.dao;
 
-import com.proyectoWEB.domain.Producto;
-import java.util.List;
-
+import com.proyectoWEB.domain.Venta;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ProductoDao extends JpaRepository < Producto, Long> {
+public interface VentaDao extends JpaRepository < Venta, Long> {
     
-    public List<Producto> findByNombreContainingOrDescripcionContaining(String busqueda, String descripcion);
-    
-    Producto findByIdProducto(int id);
 }
