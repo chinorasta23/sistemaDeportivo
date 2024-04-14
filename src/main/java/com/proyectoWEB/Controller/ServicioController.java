@@ -31,31 +31,11 @@ public class ServicioController {
         return "/servicio/listado";
     }
     
-    @Autowired
-    private FirebaseStorageServiceImpl firebaseStorageImpl;
-    
-    @PostMapping("/guardar")
-    public String guardar(Servicio servicio, @RequestParam("imagenFile") MultipartFile imagenFile){
-        if (!imagenFile.isEmpty()) {
-            servicioService.saveServicio(servicio);
-            servicio.setImgurl(firebaseStorageImpl.cargaImagen(imagenFile, "servicio", servicio.getIdServicio()));
-        }
-        servicioService.saveServicio(servicio);
-        return "redirect:/servicio/listado";
-    }
-    
-    @GetMapping("/eliminar/{idServicio}")
-    public String elimina(Servicio servicio) {
-        servicioService.deleteServicio(servicio);
-        
-        return "redirect:/servicio/listado";
-    }
-    
-    @GetMapping("/modificar/{idServicio}")
-    public String modifica(Servicio servicio, Model model) {
+    @GetMapping("/verServicio/{idServicio}")
+    public String verServicio(Servicio servicio, Model model) {
         servicio = servicioService.getServicio(servicio);
         model.addAttribute("servicio", servicio);
-        return "/servicio/modifica";
+        return "/servicio/verServicio";
     }
     
 }

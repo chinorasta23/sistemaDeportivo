@@ -27,6 +27,13 @@ public class ProyectoController {
         model.addAttribute("proyectos", proyectos);
         return "/proyectos/listado";
     }
+    
+    @GetMapping("/verProyecto/{idProyecto}")
+    public String verServicio(Proyecto proyecto, Model model) {
+        proyecto = proyectoService.getProyecto(proyecto);
+        model.addAttribute("proyecto", proyecto);
+        return "/proyectos/verProyecto";
+    }
 
     
 }

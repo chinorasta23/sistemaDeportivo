@@ -36,7 +36,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                             <img th:src="${p.imgurl}" height="200" alt="alt"/>
                                         </div>
                                         <div class="card-footer text-center">
-                                            <button class="btn btn-danger">Mas Informacion</button>
+                                            <button class="btn btn-danger"><a th:href="@{/proyectos/verProyecto/}+${p.idProyecto}" class="btn">Mas Informacion</a></button>
                                         </div>
                                     </div>
                                 </div>
@@ -45,5 +45,28 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     </div>
                 </div>
             </section>
+            
+            <section class="mt-5 pt-5" th:fragment="verProyecto">
+                <div class="container">
+                    <div class="my-4">
+                        <button class="btn btn-danger">
+                            <a th:href="@{/proyectos/listado}" class="btn"><i class="fas fa-arrow-left"></i> Regresar</a>
+                        </button>
+                    </div>
+                    <div class="my-4">
+                        <div class="row">
+                            <h2>[[${proyecto.titulo}]]</h2>
+                            <div class="card mt-4 col-md-4">
+                                <img th:src="@{${proyecto.imgurl}}" alt="alt"/>
+                            </div>
+                            <div class="col-md-8 mt-4">
+                                <h2>Descripcion</h2>
+                                <p class="fs-4">[[${proyecto.descripcion}]]</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
     </body>
 </html>

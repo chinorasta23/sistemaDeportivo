@@ -36,10 +36,32 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                             <img th:src="${s.imgurl}" height="200" alt="alt"/>
                                         </div>
                                         <div class="card-footer text-center">
-                                            <button class="btn btn-danger">Mas Informacion</button>
+                                            <button class="btn btn-danger"><a th:href="@{/servicio/verServicio/}+${s.idServicio}" class="btn">Mas Informacion</a></button>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="mt-5 pt-5" th:fragment="verServicio">
+                <div class="container">
+                    <div class="my-4">
+                        <button class="btn btn-danger">
+                            <a th:href="@{/servicio/listado}" class="btn"><i class="fas fa-arrow-left"></i> Regresar</a>
+                        </button>
+                    </div>
+                    <div class="my-4">
+                        <div class="row">
+                            <h2>[[${servicio.titulo}]]</h2>
+                            <div class="card mt-4 col-md-4">
+                                <img th:src="@{${servicio.imgurl}}" alt="alt"/>
+                            </div>
+                            <div class="col-md-8 mt-4">
+                                <h2>Descripcion</h2>
+                                <p class="fs-4">[[${servicio.descripcion}]]</p>
                             </div>
                         </div>
                     </div>

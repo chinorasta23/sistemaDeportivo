@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>TODO supply a title</title>
+    </head>
+    <body>
+        <section class="mt-5 pt-5" th:fragment="formularioContacto">
+            <div class="text-center">
+                <h2>Contacto</h2>
+            </div>
+            <div class="container">
+                <div class="row my-5">
+                    <div class="col-md-5">
+                        <div class="card p-3">
+                            <h4>Redes Sociales</h4>
+                            <span><i class="fas fa-brands fa-facebook"></i><a href="" class="btn"> Facebook</a></span>
+                            <span><i class="fas fa-brands fa-instagram"></i><a href="" class="btn"> Instagram</a></span>
+                            <span><i class="fas fa-brands fa-x-twitter"></i><a href="" class="btn"> Twitter</a></span>
+                            <hr/>
+                            <h4>Ubicanos</h4>
+                            <span>Sede Tres Rios: Cartago, La Union, Tres Rios</span>
+                            <span>Sede Cartago: Cartago, Cartago</span>
+                            <span>Sede Heredia: Heredia, El Roble</span>
+                        </div>
+                    </div> 
+                    <div class="col-6">
+                        <div class="card p-3">
+                            <form method="POST" th:action="@{/contacto/enviar}">
+                                <div class="py-2">   
+                                    <h5 class="text-secondary">Nombre</h5>
+                                    <input type="text" name="nombre" value="" class="form-control" required="true"/>
+                                    <h5 class="text-secondary">Telefono</h5>
+                                    <input type="text" name="telefono" value="" class="form-control" required="true"/>
+                                    <h5 class="text-secondary">Correo Electronico</h5>
+                                    <input type="text" name="correo" value="" class="form-control" required="true"/>
+                                    <h5 class="text-secondary">Asunto</h5>
+                                    <input type="text" name="asunto" value="" class="form-control" required="true"/>
+                                    <h5 class="text-secondary">Mensaje</h5>
+                                    <textarea name="mensaje" rows="4" cols="20" class="form-control" required="true">
+                                    </textarea>
+                                </div>
+                                <button type="submit" class="btn btn-danger"><i class="fas fa-paper-plane"></i> Enviar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
