@@ -38,8 +38,8 @@ public class UsuarioDetailsServiceImpl implements UsuarioDetailsService, UserDet
             throw new UsernameNotFoundException(username);
         }
         
-        session.removeAttribute("imagenUsuario");
-        session.setAttribute("imagenUsuario", usuario.getRutaImagen());
+        session.removeAttribute("usuarioImagen");
+        session.setAttribute("usuarioImagen", usuario.getRutaImagen());
         
         var roles = new ArrayList<GrantedAuthority>();
         

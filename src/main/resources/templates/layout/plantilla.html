@@ -67,7 +67,7 @@
                   
                         <ul class='navbar-nav' sec:authorize='isAuthenticated()'>
                             <li class='nav-item text-white my-auto px-2'>
-                                <img th:src='@{$[session.imagenUsuario]}' alt='imagen' height='40' class='rounded-circle'/>
+                                <img th:src='@{${session.usuarioImagen}}' alt='imagen' height='40' class='rounded-circle'/>
                                 <span sec:authentication='name'></span>
                             </li>
                             <li class='nav-item text-white my-auto'>

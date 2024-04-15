@@ -14,62 +14,59 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <div class="row justify-content-center">
                     <div class="col">
                         <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
-                              <span class="fs-4 text-center">Admin Panel</span>
+                              <span class="fs-4 text-center">[[#{admin.panel}]]</span>
                             <hr>
                             <ul class="nav nav-pills flex-column">
                               <li class="nav-item">
-                                <a th:href="@{/admin/panel}" class="nav-link bg-danger text-light my-1 text-center">Resumen</a>
+                                <a th:href="@{/admin/panel}" class="nav-link bg-danger text-light my-1 text-center">[[#{admin.sidebar.resumen}]]</a>
                               </li>
                               <li>
-                                <a th:href="@{/admin/servicios}" class="nav-link bg-danger my-1 text-light text-center">Servicios</a>
+                                <a th:href="@{/admin/servicios}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.servicios}]]</a>
                               </li>
                               <li>
-                                <a th:href="@{/admin/proyectos}" class="nav-link bg-danger my-1 text-light text-center">Proyectos</a>
+                                <a th:href="@{/admin/proyectos}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.proyectos}]]</a>
                               </li>
                               <li>
-                                <a th:href="@{/admin/categorias}" class="nav-link bg-danger my-1 text-light text-center">Categorias</a>
+                                <a th:href="@{/admin/categorias}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.categorias}]]</a>
                               </li>
                               <li>
-                                <a th:href="@{/admin/productos}" class="nav-link bg-danger my-1 text-light text-center">Productos</a>
+                                <a th:href="@{/admin/productos}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.productos}]]</a>
                               </li>
                               <li>
-                                <a th:href="@{/admin/ventas}" class="nav-link bg-danger my-1 text-light text-center">Ventas</a>
-                              </li>
-                              <li>
-                                <a th:href="@{/admin/facturar}" class="nav-link bg-danger my-1 text-light text-center">Facturar</a>
+                                <a th:href="@{/admin/ventas}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.ventas}]]</a>
                               </li>
                             </ul>
                           </div>
                     </div>
                     <div class="col-md-9">
                         <div class="text-center">
-                            <h2>Resumen</h2>
+                            <h2>[[#{admin.resumen.titulo}]]</h2>
                         </div>
                         
                         <div class="row px-5">
                             <div class="col m-5">
                                 <div class="card">
                                     <div class="card-title text-center">
-                                        <h2>Ventas Total</h2>
+                                        <h2>[[#{admin.resumen.ventas.total}]]</h2>
                                     </div>
                                     <div class="card-body p-2 text-center">
                                         <h2 class="border p-2">[[${totalVentas}]]</h2>
                                     </div>
                                     <div class="card-footer text-center">
-                                        <a th:href="@{/admin/ventas}" class="btn btn-danger">Ir a ventas</a>
+                                        <a th:href="@{/admin/ventas}" class="btn btn-danger">[[#{admin.resumen.ventas.ir}]]</a>
                                     </div>
                                 </div>
                                 <div class="text-center mt-3">   
-                                    <h4>Ultimas 5 Ventas</h4>
+                                    <h4>[[#{admin.resumen.ultimasv}]]</h4>
                                 </div>
                                     <table class="table table-hover my-3">
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>ID Factura</th>         
-                                                <th>ID Producto</th>
-                                                <th>Precio</th>
-                                                <th>Cantidad</th>
+                                                <th>[[#{admin.resumen.idfactura}]]</th>         
+                                                <th>[[#{admin.resumen.idproducto}]]</th>
+                                                <th>[[#{admin.resumen.precio}]]</th>
+                                                <th>[[#{admin.resumen.cantidad}]]</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -86,27 +83,27 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                             <div class="col m-5">
                                 <div class="card">
                                     <div class="card-title text-center">
-                                        <h2>Productos Total</h2>
+                                        <h2>[[#{admin.resumen.totalproductos}]]</h2>
                                     </div>
                                     <div class="card-body p-2 text-center">
                                         <h2 class="border p-2">[[${totalProductos}]]</h2>
                                     </div>
                                     <div class="card-footer text-center">
-                                        <a th:href="@{/admin/productos}" class="btn btn-danger">Ir a productos</a>
+                                        <a th:href="@{/admin/productos}" class="btn btn-danger">[[#{admin.resumen.irproductos}]]</a>
                                     </div>
                                 </div>
                                 
                                 <div class="text-center mt-3">   
-                                    <h4>Ultimos 5 Productos</h4>
+                                    <h4>admin.resumen.ultimosp</h4>
                                 </div>
                                     <table class="table table-hover my-3">
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Categoria</th>         
-                                                <th>Nombre</th>
-                                                <th>Precio</th>
-                                                <th>Existencias</th>
+                                                <th>[[#{admin.categoria}]]</th>         
+                                                <th>[[#{admin.nombre}]]</th>
+                                                <th>[[#{admin.precio}]]</th>
+                                                <th>[[#{admin.existencias}]]</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -134,29 +131,26 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <div class="row justify-content-center">
                     <div class="col">
                         <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
-                              <span class="fs-4 text-center">Admin Panel</span>
+                              <span class="fs-4 text-center">[[#{admin.panel}]]</span>
                             <hr>
                             <ul class="nav nav-pills flex-column">
                               <li class="nav-item">
-                                <a th:href="@{/admin/panel}" class="nav-link bg-danger text-light my-1 text-center">Resumen</a>
+                                <a th:href="@{/admin/panel}" class="nav-link bg-danger text-light my-1 text-center">[[#{admin.sidebar.resumen}]]</a>
                               </li>
                               <li>
-                                <a th:href="@{/admin/servicios}" class="nav-link bg-danger my-1 text-light text-center">Servicios</a>
+                                <a th:href="@{/admin/servicios}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.servicios}]]</a>
                               </li>
                               <li>
-                                <a th:href="@{/admin/proyectos}" class="nav-link bg-danger my-1 text-light text-center">Proyectos</a>
+                                <a th:href="@{/admin/proyectos}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.proyectos}]]</a>
                               </li>
                               <li>
-                                <a th:href="@{/admin/categorias}" class="nav-link bg-danger my-1 text-light text-center">Categorias</a>
+                                <a th:href="@{/admin/categorias}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.categorias}]]</a>
                               </li>
                               <li>
-                                <a th:href="@{/admin/productos}" class="nav-link bg-danger my-1 text-light text-center">Productos</a>
+                                <a th:href="@{/admin/productos}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.productos}]]</a>
                               </li>
                               <li>
-                                <a th:href="@{/admin/ventas}" class="nav-link bg-danger my-1 text-light text-center">Ventas</a>
-                              </li>
-                              <li>
-                                <a th:href="@{/admin/facturar}" class="nav-link bg-danger my-1 text-light text-center">Facturar</a>
+                                <a th:href="@{/admin/ventas}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.ventas}]]</a>
                               </li>
                             </ul>
                           </div>
@@ -175,7 +169,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                                     class="btn btn-primary btn-block" 
                                                     data-bs-toggle="modal" 
                                                     data-bs-target="#agregarServicio">
-                                                    <i class="fas fa-plus"></i> Agregar
+                                                    <i class="fas fa-plus"></i> [[#{accion.agregar}]]
                                                 </button>
                                             </div>
                                         </div>
@@ -189,22 +183,22 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                         <div class="modal-dialog modal-md">
                                             <div class="modal-content">
                                                 <div class="modal-header bg-danger text-white">
-                                                    <h5 class="modal-title">Agregar Servicio</h5>
+                                                    <h5 class="modal-title">[[#{accion.agregar.servicio}]]</h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div> 
                                                 <form th:action="@{/admin/servicios/guardar}" th:object="${servicio}"
                                                       method="POST" class="was-validated" enctype="multipart/form-data">
                                                     <div class="modal-body">
                                                         <div class="mb-3">
-                                                            <label for="titulo">Titulo</label>
+                                                            <label for="titulo">[[#{pl.titulo}]]</label>
                                                             <input type="text" class="form-control" name="titulo" required="true"/>
                                                         </div>
                                                         <div class="mb-3">
-                                                            <label for="descripcion">Descripcion</label>
+                                                            <label for="descripcion">[[#{pl.descripcion}]]</label>
                                                             <textarea class="form-control" name="descripcion" required="true" rows="3"></textarea>
                                                         </div>
                                                         <div class="mb-3">
-                                                            <label for="imagen">Imagen</label>
+                                                            <label for="imagen">[[#{pl.imagen}]]</label>
                                                             <input class="form-control" type="file" name="imagenFile" onchange="readURL(this);"/>
                                                             <div class="m-2 text-center">
                                                                 <img id="blah" src="#" alt="your image" height="200"/>
@@ -212,7 +206,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button class="btn btn-primary" type="submit">Guardar</button>
+                                                        <button class="btn btn-primary" type="submit">[[#{accion.guardar}]]</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -224,7 +218,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Titulo</th>         
+                                        <th>[[#{pl.titulo}]]</th>         
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -233,9 +227,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                         <td>[[${servicio.idServicio}]]</td>
                                         <td>[[${servicio.titulo}]]</td>
                                         <td><a th:href="@{/admin/servicios/eliminar/}+${servicio.idServicio}" class="btn btn-danger">
-                                                <i class="fas fa-trash"></i> Eliminar</a>
+                                                <i class="fas fa-trash"></i> [[#{accion.eliminar}]]</a>
                                             <a th:href="@{/admin/servicios/modificar/}+${servicio.idServicio}" class="btn btn-success">
-                                                <i class="fas fa-pencil"></i> Modificar</a></td>
+                                                <i class="fas fa-pencil"></i> [[#{accion.modificar}]]</a></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -250,37 +244,34 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             <div class="row justify-content-center">
                 <div class="col">
                     <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
-                        <span class="fs-4 text-center">Admin Panel</span>
-                        <hr>
+                              <span class="fs-4 text-center">[[#{admin.panel}]]</span>
+                            <hr>
                             <ul class="nav nav-pills flex-column">
-                                <li class="nav-item">
-                                    <a th:href="@{/admin/panel}" class="nav-link bg-danger text-light my-1 text-center">Resumen</a>
-                                </li>
-                                <li>
-                                    <a th:href="@{/admin/servicios}" class="nav-link bg-danger my-1 text-light text-center">Servicios</a>
-                                </li>
-                                <li>
-                                    <a th:href="@{/admin/proyectos}" class="nav-link bg-danger my-1 text-light text-center">Proyectos</a>
-                                </li>
-                                <li>
-                                    <a th:href="@{/admin/categorias}" class="nav-link bg-danger my-1 text-light text-center">Categorias</a>
-                                </li>
-                                <li>
-                                    <a th:href="@{/admin/productos}" class="nav-link bg-danger my-1 text-light text-center">Productos</a>
-                                </li>
-                                <li>
-                                    <a th:href="@{/admin/ventas}" class="nav-link bg-danger my-1 text-light text-center">Ventas</a>
-                                </li>
-                                <li>
-                                    <a th:href="@{/admin/facturar}" class="nav-link bg-danger my-1 text-light text-center">Facturar</a>
-                                </li>
+                              <li class="nav-item">
+                                <a th:href="@{/admin/panel}" class="nav-link bg-danger text-light my-1 text-center">[[#{admin.sidebar.resumen}]]</a>
+                              </li>
+                              <li>
+                                <a th:href="@{/admin/servicios}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.servicios}]]</a>
+                              </li>
+                              <li>
+                                <a th:href="@{/admin/proyectos}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.proyectos}]]</a>
+                              </li>
+                              <li>
+                                <a th:href="@{/admin/categorias}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.categorias}]]</a>
+                              </li>
+                              <li>
+                                <a th:href="@{/admin/productos}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.productos}]]</a>
+                              </li>
+                              <li>
+                                <a th:href="@{/admin/ventas}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.ventas}]]</a>
+                              </li>
                             </ul>
                     </div>
                 </div>
 
                 <div class="col-md-9">
                     <div class="text-center">
-                        <h2>Modificar Servicios</h2>
+                        <h2>[[#{admin.servicios.modificar}]]</h2>
                     </div>
                     <div class="row">
                         <div class="col-md-2"></div>
@@ -298,21 +289,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                             <div class="col">
                                                 <div class="card">
                                                     <div class="card-header text-center">
-                                                        <h4>Actualizar</h4>
+                                                        <h4>[[#{pl.actualizar}]]</h4>
                                                     </div>
                                                     <div class="card-body">
                                                         <div class="mb-3">
-                                                            <label for="titulo">Titulo</label>
+                                                            <label for="titulo">[[#{pl.titulo}]]</label>
                                                             <input type="text" class="form-control" 
                                                                    name="titulo" th:field="*{titulo}"
                                                                    required="true">
                                                         </div>
                                                         <div class="mb-3">
-                                                            <label for="detalle">Descripcion</label>
+                                                            <label for="detalle">[[#{pl.descripcion}]]</label>
                                                             <textarea class="form-control" name="descripcion" th:field="*{descripcion}" required="true" rows="3"></textarea>
                                                         </div>
                                                         <div class="mb-3">
-                                                            <label for="imagen">Imagen</label>
+                                                            <label for="imagen">[[#{pl.imagen}]]</label>
                                                             <input class="form-control" type="file" name="imagenFile"
                                                                    onchange="readURL(this);" />
                                                             <div class="m-2 text-center">
@@ -329,18 +320,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                         <div class="row">
                                             <div class="col-md-4 d-grid">
                                                 <a th:href="@{/admin/servicios}" class="btn btn-primary">
-                                                    <i class="fas fa-arrow-left"></i> Regresar
+                                                    <i class="fas fa-arrow-left"></i> [[#{accion.regresar}]]
                                                 </a>
                                             </div>
                                             <div class="col-md-4 d-grid">                                
                                                 <a th:href="@{/admin/servicios/eliminar/}+${servicio.idServicio}"
                                                    class="btn btn-danger">
-                                                    <i class="fas fa-trash"></i> Eliminar
+                                                    <i class="fas fa-trash"></i> [[#{accion.eliminar}]]
                                                 </a>
                                             </div>
                                             <div class="col-md-4 d-grid">
                                                 <button type="submit" class="btn btn-success">
-                                                    <i class="fas fa-check"></i> Guardar
+                                                    <i class="fas fa-check"></i> [[#{accion.Guardar}]]
                                                 </button>
                                             </div>
                                         </div>
@@ -356,29 +347,26 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <div class="row justify-content-center">
                     <div class="col">
                         <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
-                              <span class="fs-4 text-center">Admin Panel</span>
+                              <span class="fs-4 text-center">[[#{admin.panel}]]</span>
                             <hr>
                             <ul class="nav nav-pills flex-column">
                               <li class="nav-item">
-                                <a th:href="@{/admin/panel}" class="nav-link bg-danger text-light my-1 text-center">Resumen</a>
+                                <a th:href="@{/admin/panel}" class="nav-link bg-danger text-light my-1 text-center">[[#{admin.sidebar.resumen}]]</a>
                               </li>
                               <li>
-                                <a th:href="@{/admin/servicios}" class="nav-link bg-danger my-1 text-light text-center">Servicios</a>
+                                <a th:href="@{/admin/servicios}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.servicios}]]</a>
                               </li>
                               <li>
-                                <a th:href="@{/admin/proyectos}" class="nav-link bg-danger my-1 text-light text-center">Proyectos</a>
+                                <a th:href="@{/admin/proyectos}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.proyectos}]]</a>
                               </li>
                               <li>
-                                <a th:href="@{/admin/categorias}" class="nav-link bg-danger my-1 text-light text-center">Categorias</a>
+                                <a th:href="@{/admin/categorias}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.categorias}]]</a>
                               </li>
                               <li>
-                                <a th:href="@{/admin/productos}" class="nav-link bg-danger my-1 text-light text-center">Productos</a>
+                                <a th:href="@{/admin/productos}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.productos}]]</a>
                               </li>
                               <li>
-                                <a th:href="@{/admin/ventas}" class="nav-link bg-danger my-1 text-light text-center">Ventas</a>
-                              </li>
-                              <li>
-                                <a th:href="@{/admin/facturar}" class="nav-link bg-danger my-1 text-light text-center">Facturar</a>
+                                <a th:href="@{/admin/ventas}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.ventas}]]</a>
                               </li>
                             </ul>
                           </div>
@@ -472,30 +460,27 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             <div class="row justify-content-center">
                 <div class="col">
                     <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
-                        <span class="fs-4 text-center">Admin Panel</span>
-                        <hr>
+                              <span class="fs-4 text-center">[[#{admin.panel}]]</span>
+                            <hr>
                             <ul class="nav nav-pills flex-column">
-                                <li class="nav-item">
-                                    <a th:href="@{/admin/panel}" class="nav-link bg-danger text-light my-1 text-center">Resumen</a>
-                                </li>
-                                <li>
-                                    <a th:href="@{/admin/servicios}" class="nav-link bg-danger my-1 text-light text-center">Servicios</a>
-                                </li>
-                                <li>
-                                    <a th:href="@{/admin/proyectos}" class="nav-link bg-danger my-1 text-light text-center">Proyectos</a>
-                                </li>
-                                <li>
-                                    <a th:href="@{/admin/categorias}" class="nav-link bg-danger my-1 text-light text-center">Categorias</a>
-                                </li>
-                                <li>
-                                    <a th:href="@{/admin/productos}" class="nav-link bg-danger my-1 text-light text-center">Productos</a>
-                                </li>
-                                <li>
-                                    <a th:href="@{/admin/ventas}" class="nav-link bg-danger my-1 text-light text-center">Ventas</a>
-                                </li>
-                                <li>
-                                    <a th:href="@{/admin/facturar}" class="nav-link bg-danger my-1 text-light text-center">Facturar</a>
-                                </li>
+                              <li class="nav-item">
+                                <a th:href="@{/admin/panel}" class="nav-link bg-danger text-light my-1 text-center">[[#{admin.sidebar.resumen}]]</a>
+                              </li>
+                              <li>
+                                <a th:href="@{/admin/servicios}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.servicios}]]</a>
+                              </li>
+                              <li>
+                                <a th:href="@{/admin/proyectos}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.proyectos}]]</a>
+                              </li>
+                              <li>
+                                <a th:href="@{/admin/categorias}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.categorias}]]</a>
+                              </li>
+                              <li>
+                                <a th:href="@{/admin/productos}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.productos}]]</a>
+                              </li>
+                              <li>
+                                <a th:href="@{/admin/ventas}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.ventas}]]</a>
+                              </li>
                             </ul>
                     </div>
                 </div>
@@ -579,29 +564,26 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <div class="row justify-content-center">
                     <div class="col">
                         <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
-                              <span class="fs-4 text-center">Admin Panel</span>
+                              <span class="fs-4 text-center">[[#{admin.panel}]]</span>
                             <hr>
                             <ul class="nav nav-pills flex-column">
                               <li class="nav-item">
-                                <a th:href="@{/admin/panel}" class="nav-link bg-danger text-light my-1 text-center">Resumen</a>
+                                <a th:href="@{/admin/panel}" class="nav-link bg-danger text-light my-1 text-center">[[#{admin.sidebar.resumen}]]</a>
                               </li>
                               <li>
-                                <a th:href="@{/admin/servicios}" class="nav-link bg-danger my-1 text-light text-center">Servicios</a>
+                                <a th:href="@{/admin/servicios}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.servicios}]]</a>
                               </li>
                               <li>
-                                <a th:href="@{/admin/proyectos}" class="nav-link bg-danger my-1 text-light text-center">Proyectos</a>
+                                <a th:href="@{/admin/proyectos}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.proyectos}]]</a>
                               </li>
                               <li>
-                                <a th:href="@{/admin/categorias}" class="nav-link bg-danger my-1 text-light text-center">Categorias</a>
+                                <a th:href="@{/admin/categorias}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.categorias}]]</a>
                               </li>
                               <li>
-                                <a th:href="@{/admin/productos}" class="nav-link bg-danger my-1 text-light text-center">Productos</a>
+                                <a th:href="@{/admin/productos}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.productos}]]</a>
                               </li>
                               <li>
-                                <a th:href="@{/admin/ventas}" class="nav-link bg-danger my-1 text-light text-center">Ventas</a>
-                              </li>
-                              <li>
-                                <a th:href="@{/admin/facturar}" class="nav-link bg-danger my-1 text-light text-center">Facturar</a>
+                                <a th:href="@{/admin/ventas}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.ventas}]]</a>
                               </li>
                             </ul>
                           </div>
@@ -691,30 +673,27 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             <div class="row justify-content-center">
                 <div class="col">
                     <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
-                        <span class="fs-4 text-center">Admin Panel</span>
-                        <hr>
+                              <span class="fs-4 text-center">[[#{admin.panel}]]</span>
+                            <hr>
                             <ul class="nav nav-pills flex-column">
-                                <li class="nav-item">
-                                    <a th:href="@{/admin/panel}" class="nav-link bg-danger text-light my-1 text-center">Resumen</a>
-                                </li>
-                                <li>
-                                    <a th:href="@{/admin/servicios}" class="nav-link bg-danger my-1 text-light text-center">Servicios</a>
-                                </li>
-                                <li>
-                                    <a th:href="@{/admin/proyectos}" class="nav-link bg-danger my-1 text-light text-center">Proyectos</a>
-                                </li>
-                                <li>
-                                    <a th:href="@{/admin/categorias}" class="nav-link bg-danger my-1 text-light text-center">Categorias</a>
-                                </li>
-                                <li>
-                                    <a th:href="@{/admin/productos}" class="nav-link bg-danger my-1 text-light text-center">Productos</a>
-                                </li>
-                                <li>
-                                    <a th:href="@{/admin/ventas}" class="nav-link bg-danger my-1 text-light text-center">Ventas</a>
-                                </li>
-                                <li>
-                                    <a th:href="@{/admin/facturar}" class="nav-link bg-danger my-1 text-light text-center">Facturar</a>
-                                </li>
+                              <li class="nav-item">
+                                <a th:href="@{/admin/panel}" class="nav-link bg-danger text-light my-1 text-center">[[#{admin.sidebar.resumen}]]</a>
+                              </li>
+                              <li>
+                                <a th:href="@{/admin/servicios}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.servicios}]]</a>
+                              </li>
+                              <li>
+                                <a th:href="@{/admin/proyectos}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.proyectos}]]</a>
+                              </li>
+                              <li>
+                                <a th:href="@{/admin/categorias}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.categorias}]]</a>
+                              </li>
+                              <li>
+                                <a th:href="@{/admin/productos}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.productos}]]</a>
+                              </li>
+                              <li>
+                                <a th:href="@{/admin/ventas}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.ventas}]]</a>
+                              </li>
                             </ul>
                     </div>
                 </div>
@@ -794,29 +773,26 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <div class="row justify-content-center">
                     <div class="col">
                         <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
-                              <span class="fs-4 text-center">Admin Panel</span>
+                              <span class="fs-4 text-center">[[#{admin.panel}]]</span>
                             <hr>
                             <ul class="nav nav-pills flex-column">
                               <li class="nav-item">
-                                <a th:href="@{/admin/panel}" class="nav-link bg-danger text-light my-1 text-center">Resumen</a>
+                                <a th:href="@{/admin/panel}" class="nav-link bg-danger text-light my-1 text-center">[[#{admin.sidebar.resumen}]]</a>
                               </li>
                               <li>
-                                <a th:href="@{/admin/servicios}" class="nav-link bg-danger my-1 text-light text-center">Servicios</a>
+                                <a th:href="@{/admin/servicios}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.servicios}]]</a>
                               </li>
                               <li>
-                                <a th:href="@{/admin/proyectos}" class="nav-link bg-danger my-1 text-light text-center">Proyectos</a>
+                                <a th:href="@{/admin/proyectos}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.proyectos}]]</a>
                               </li>
                               <li>
-                                <a th:href="@{/admin/categorias}" class="nav-link bg-danger my-1 text-light text-center">Categorias</a>
+                                <a th:href="@{/admin/categorias}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.categorias}]]</a>
                               </li>
                               <li>
-                                <a th:href="@{/admin/productos}" class="nav-link bg-danger my-1 text-light text-center">Productos</a>
+                                <a th:href="@{/admin/productos}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.productos}]]</a>
                               </li>
                               <li>
-                                <a th:href="@{/admin/ventas}" class="nav-link bg-danger my-1 text-light text-center">Ventas</a>
-                              </li>
-                              <li>
-                                <a th:href="@{/admin/facturar}" class="nav-link bg-danger my-1 text-light text-center">Facturar</a>
+                                <a th:href="@{/admin/ventas}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.ventas}]]</a>
                               </li>
                             </ul>
                           </div>
@@ -943,30 +919,27 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             <div class="row justify-content-center">
                 <div class="col">
                     <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
-                        <span class="fs-4 text-center">Admin Panel</span>
-                        <hr>
+                              <span class="fs-4 text-center">[[#{admin.panel}]]</span>
+                            <hr>
                             <ul class="nav nav-pills flex-column">
-                                <li class="nav-item">
-                                    <a th:href="@{/admin/panel}" class="nav-link bg-danger text-light my-1 text-center">Resumen</a>
-                                </li>
-                                <li>
-                                    <a th:href="@{/admin/servicios}" class="nav-link bg-danger my-1 text-light text-center">Servicios</a>
-                                </li>
-                                <li>
-                                    <a th:href="@{/admin/proyectos}" class="nav-link bg-danger my-1 text-light text-center">Proyectos</a>
-                                </li>
-                                <li>
-                                    <a th:href="@{/admin/categorias}" class="nav-link bg-danger my-1 text-light text-center">Categorias</a>
-                                </li>
-                                <li>
-                                    <a th:href="@{/admin/productos}" class="nav-link bg-danger my-1 text-light text-center">Productos</a>
-                                </li>
-                                <li>
-                                    <a th:href="@{/admin/ventas}" class="nav-link bg-danger my-1 text-light text-center">Ventas</a>
-                                </li>
-                                <li>
-                                    <a th:href="@{/admin/facturar}" class="nav-link bg-danger my-1 text-light text-center">Facturar</a>
-                                </li>
+                              <li class="nav-item">
+                                <a th:href="@{/admin/panel}" class="nav-link bg-danger text-light my-1 text-center">[[#{admin.sidebar.resumen}]]</a>
+                              </li>
+                              <li>
+                                <a th:href="@{/admin/servicios}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.servicios}]]</a>
+                              </li>
+                              <li>
+                                <a th:href="@{/admin/proyectos}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.proyectos}]]</a>
+                              </li>
+                              <li>
+                                <a th:href="@{/admin/categorias}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.categorias}]]</a>
+                              </li>
+                              <li>
+                                <a th:href="@{/admin/productos}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.productos}]]</a>
+                              </li>
+                              <li>
+                                <a th:href="@{/admin/ventas}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.ventas}]]</a>
+                              </li>
                             </ul>
                     </div>
                 </div>
@@ -1070,29 +1043,26 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <div class="row justify-content-center">
                     <div class="col">
                         <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
-                              <span class="fs-4 text-center">Admin Panel</span>
+                              <span class="fs-4 text-center">[[#{admin.panel}]]</span>
                             <hr>
                             <ul class="nav nav-pills flex-column">
                               <li class="nav-item">
-                                <a th:href="@{/admin/panel}" class="nav-link bg-danger text-light my-1 text-center">Resumen</a>
+                                <a th:href="@{/admin/panel}" class="nav-link bg-danger text-light my-1 text-center">[[#{admin.sidebar.resumen}]]</a>
                               </li>
                               <li>
-                                <a th:href="@{/admin/servicios}" class="nav-link bg-danger my-1 text-light text-center">Servicios</a>
+                                <a th:href="@{/admin/servicios}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.servicios}]]</a>
                               </li>
                               <li>
-                                <a th:href="@{/admin/proyectos}" class="nav-link bg-danger my-1 text-light text-center">Proyectos</a>
+                                <a th:href="@{/admin/proyectos}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.proyectos}]]</a>
                               </li>
                               <li>
-                                <a th:href="@{/admin/categorias}" class="nav-link bg-danger my-1 text-light text-center">Categorias</a>
+                                <a th:href="@{/admin/categorias}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.categorias}]]</a>
                               </li>
                               <li>
-                                <a th:href="@{/admin/productos}" class="nav-link bg-danger my-1 text-light text-center">Productos</a>
+                                <a th:href="@{/admin/productos}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.productos}]]</a>
                               </li>
                               <li>
-                                <a th:href="@{/admin/ventas}" class="nav-link bg-danger my-1 text-light text-center">Ventas</a>
-                              </li>
-                              <li>
-                                <a th:href="@{/admin/facturar}" class="nav-link bg-danger my-1 text-light text-center">Facturar</a>
+                                <a th:href="@{/admin/ventas}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.ventas}]]</a>
                               </li>
                             </ul>
                           </div>
@@ -1136,29 +1106,26 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <div class="row justify-content-center">
                     <div class="col">
                         <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
-                              <span class="fs-4 text-center">Admin Panel</span>
+                              <span class="fs-4 text-center">[[#{admin.panel}]]</span>
                             <hr>
                             <ul class="nav nav-pills flex-column">
                               <li class="nav-item">
-                                <a th:href="@{/admin/panel}" class="nav-link bg-danger text-light my-1 text-center">Resumen</a>
+                                <a th:href="@{/admin/panel}" class="nav-link bg-danger text-light my-1 text-center">[[#{admin.sidebar.resumen}]]</a>
                               </li>
                               <li>
-                                <a th:href="@{/admin/servicios}" class="nav-link bg-danger my-1 text-light text-center">Servicios</a>
+                                <a th:href="@{/admin/servicios}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.servicios}]]</a>
                               </li>
                               <li>
-                                <a th:href="@{/admin/proyectos}" class="nav-link bg-danger my-1 text-light text-center">Proyectos</a>
+                                <a th:href="@{/admin/proyectos}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.proyectos}]]</a>
                               </li>
                               <li>
-                                <a th:href="@{/admin/categorias}" class="nav-link bg-danger my-1 text-light text-center">Categorias</a>
+                                <a th:href="@{/admin/categorias}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.categorias}]]</a>
                               </li>
                               <li>
-                                <a th:href="@{/admin/productos}" class="nav-link bg-danger my-1 text-light text-center">Productos</a>
+                                <a th:href="@{/admin/productos}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.productos}]]</a>
                               </li>
                               <li>
-                                <a th:href="@{/admin/ventas}" class="nav-link bg-danger my-1 text-light text-center">Ventas</a>
-                              </li>
-                              <li>
-                                <a th:href="@{/admin/facturar}" class="nav-link bg-danger my-1 text-light text-center">Facturar</a>
+                                <a th:href="@{/admin/ventas}" class="nav-link bg-danger my-1 text-light text-center">[[#{admin.sidebar.ventas}]]</a>
                               </li>
                             </ul>
                           </div>
