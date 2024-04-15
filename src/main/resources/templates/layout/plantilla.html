@@ -31,22 +31,22 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                   <ul class="navbar-nav">
                     <li class="nav-item">
-                      <a class="nav-link active text-light" aria-current="page" th:href="@{/}">Inicio</a>
+                      <a class="nav-link active text-light" aria-current="page" th:href="@{/}">[[#{plantilla.inicio}]]</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link text-light" th:href="@{/nosotros}">Nosotros</a>
+                      <a class="nav-link text-light" th:href="@{/nosotros}">[[#{plantilla.nosotros}]]</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link text-light" th:href="@{/servicio/listado}">Servicios</a>
+                      <a class="nav-link text-light" th:href="@{/servicio/listado}">[[#{plantilla.servicios}]]</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link text-light" th:href="@{/proyectos/listado}">Proyectos</a>
+                      <a class="nav-link text-light" th:href="@{/proyectos/listado}">[[#{plantilla.proyectos}]]</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link text-light" th:href="@{/tienda/productos}">Tienda</a>
+                      <a class="nav-link text-light" th:href="@{/tienda/productos}">[[#{plantilla.tienda}]]</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link text-light" th:href="@{/contacto/form}">Contacto</a>
+                      <a class="nav-link text-light" th:href="@{/contacto/form}">[[#{plantilla.contacto}]]</a>
                     </li>
                   </ul>
                 </div>
@@ -85,17 +85,17 @@
               <div class="row align-items-start">
                 <div class="col">
                     <hr class="text-black">
-                    <h5 class="text-light">Acerca De</h3>
-                    <p class="text-light">Somos una empresa de topografía fundada en 2005, comprometida con la actualización constante de equipos para ofrecer servicios eficientes y de calidad. Buscamos ser líderes a nivel nacional, enfocándonos en la satisfacción del cliente y la innovación tecnológica.</p>
+                    <h5 class="text-light">[[#{plantilla.footer.acercade}]]</h3>
+                    <p class="text-light">[[#{plantilla.footer.acercade.data}]]</p>
                 </div>
                 <div class="col">
                     <hr class="text-black">
-                    <h5 class="text-light">Servicios</h3>
-                    <p class="text-light">Somos tu elección integral para servicios topográficos de calidad. Desde urbanizaciones hasta nivelaciones, drones, GNSS, obra civil y trazado de ejes. Con años de experiencia y tecnología avanzada, garantizamos precisión en cada proyecto.</p>
+                    <h5 class="text-light">[[#{plantilla.footer.servicios}]]</h3>
+                    <p class="text-light">[[#{plantilla.footer.servicios.data}]]</p>
                 </div>
                 <div class="col">
                     <hr class="text-black">
-                    <h5 class="text-light">Contacto</h3>
+                    <h5 class="text-light">[[#{plantilla.contacto}]]</h3>
                     <ul class="list-group">
                       <li class="list-group-item">Tel: +506 1234 5678</li>
                       <li class="list-group-item">Email: correo@correo.com</li>
@@ -106,7 +106,7 @@
               </div>
             </div>
             <hr class="text-black">
-            <p class="text-light text-center">Topotec S.A Todos los derechos reservados</p>
+            <p class="text-light text-center">[[#{plantilla.copyright}]]</p>
           </div>
         </footer>
         

@@ -18,16 +18,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             <section th:fragment="filtrosProducto">
                 <div class="container">
                     <div class="text-center my-3">
-                        <h2>Buscar un producto</h2>
+                        <h2>[[#{tienda.buscar.subtitulo}]]</h2>
                     </div>
                     <hr>
                     <div class="row mt-5">
                         <div class="col-md-4">
                             <div class="form-outline" data-mdb-input-init>
                               <form method="POST" th:action="@{/tienda/busqueda}">
-                              <input type="search" id="titulo" th:value="${nombre}" th:name="nombre" class="form-control" placeholder="Buscar un producto..." aria-label="Search" />
+                              <input type="search" id="titulo" th:value="${nombre}" th:name="nombre" class="form-control" th:placeholder="#{tienda.buscar.placeholder}" aria-label="Search" />
                                   <button type="submit" class="mt-2 btn btn-danger mt-2">
-                                      <i class="fa fa-search"> Buscar</i>
+                                      <i class="fa fa-search"> [[#{tienda.buscar}]]</i>
                                   </button>
                               </form>
                             </div>
@@ -35,7 +35,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     </div>
                         <div class="row py-2">
                             <div class="text-center">
-                                <h2>Filtrar por categoria</h2>
+                                <h2>[[#{tienda.filtrar.categoria}]]</h2>
                             </div>
                             <ul class="navbar nav">
                                 <li th:each="c : ${categorias}" class="nav-item">
@@ -49,12 +49,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             <section th:fragment="listadoBusqueda">
                 <div class="my-5">
                     <div class="text-center">
-                        <h2>Nuestros Productos</h2>
+                        <h2>[[#{tienda.nuestrosproductos}]]</h2>
                     </div>
                     <div class="p-2">
                         <div class="row p-5 mx-4">
                             <div th:if="${productos == null or productos.empty}" class="text-center">
-                                <h5 class="fst-italic fw-light">No se ha encontrado productos relacionados a la busqueda...</h2>
+                                <h5 class="fst-italic fw-light">[[#{tienda.busquedae.no}]]</h2>
                             </div>
                             <div th:each="p : ${productos}" class="col">
                                 <div class="col">
@@ -69,7 +69,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                             </div>
                                         </div>
                                         <div class="card-footer text-center">
-                                            <button class="btn btn-danger">Mas Informacion</button>
+                                            <button class="btn btn-danger">[[#{accion.masinfo}]]</button>
                                         </div>
                                     </div>
                                 </div>
@@ -82,11 +82,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             <section th:fragment="verProducto">
                 <div class="mt-5 pt-5 px-5">
                     <button>
-                        <a class="nav-link btn text-dark" th:href="@{/tienda/productos}"><i class="fas fa-arrow-left"></i> Regresar</a>
+                        <a class="nav-link btn text-dark" th:href="@{/tienda/productos}"><i class="fas fa-arrow-left"></i> [[#{accion.regresar}]]</a>
                     </button>
                 </div>
                 <div class="text-center">
-                    <h2>Ver Producto</h2>
+                    <h2>[[#{tienda.producto}]]</h2>
                 </div>
                 <div class="container">
                     <div class="row mt-5">
@@ -101,7 +101,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                         <div class="mt-5 col-md-7 px-5 pt-5">
                             <div class="border">
                                 <div class="p-2">
-                                    <h2>Descripcion</h2>
+                                    <h2>[[#{producto.descripcion}]]</h2>
                                    
                                     <div class="card m-2">
                                         <div class="p-2 col-md-5">
@@ -111,17 +111,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                     
                                     <div class="card m-2 col-md-4">
                                         <div class="p-2">
-                                            <h6>Precio: [[${producto.precio}]]</h6>
+                                            <h6>[[#{tienda.precio}]] [[${producto.precio}]]</h6>
                                         </div>
                                     </div>
                                     <div class="card m-2 col-md-4">
                                         <div class="p-2">
-                                            <h6>Existencias: ([[${producto.existencias}]])</h6>
+                                            <h6>[[#{tienda.existencias}]] ([[${producto.existencias}]])</h6>
                                         </div>
                                     </div>
                                     <div class="card m-2col-md-4">
                                         <div class="p-2">
-                                            <h6>Categoria: [[${producto.categoria.nombre}]]</h6>
+                                            <h6>[[#{tienda.categoria}]] [[${producto.categoria.nombre}]]</h6>
                                         </div>
                                     </div>
                                 </div>

@@ -19,12 +19,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             <section th:fragment="listadoProyectos">
                 <div class="my-5">
                     <div class="text-center">
-                        <h2>Nuestros Proyectos</h2>
+                        <h2>[[#{proyectos.nuestrosproyectos}]]</h2>
                     </div>
                     <div class="p-2">
                         <div class="row p-5 mx-4">
                             <div th:if="${proyectos == null or proyectos.empty}" class="text-center">
-                                <h5 class="fst-italic fw-light">No hay proyectos que mostrar...</h2>
+                                <h5 class="fst-italic fw-light">[[#{proyectos.nomostrar}]]</h2>
                             </div>
                             <div th:each="p : ${proyectos}" class="col">
                                 <div class="col">
@@ -36,7 +36,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                             <img th:src="${p.imgurl}" height="200" alt="alt"/>
                                         </div>
                                         <div class="card-footer text-center">
-                                            <button class="btn btn-danger"><a th:href="@{/proyectos/verProyecto/}+${p.idProyecto}" class="btn">Mas Informacion</a></button>
+                                            <button class="btn btn-danger"><a th:href="@{/proyectos/verProyecto/}+${p.idProyecto}" class="btn">[[#{accion.masinfo}]]</a></button>
                                         </div>
                                     </div>
                                 </div>
@@ -50,7 +50,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <div class="container">
                     <div class="my-4">
                         <button class="btn btn-danger">
-                            <a th:href="@{/proyectos/listado}" class="btn"><i class="fas fa-arrow-left"></i> Regresar</a>
+                            <a th:href="@{/proyectos/listado}" class="btn"><i class="fas fa-arrow-left"></i> [[#{accion.regresar}]]</a>
                         </button>
                     </div>
                     <div class="my-4">
@@ -60,7 +60,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                 <img th:src="@{${proyecto.imgurl}}" alt="alt"/>
                             </div>
                             <div class="col-md-8 mt-4">
-                                <h2>Descripcion</h2>
+                                <h2>[[#{proyecto.descripcion}]]</h2>
                                 <p class="fs-4">[[${proyecto.descripcion}]]</p>
                             </div>
                         </div>
