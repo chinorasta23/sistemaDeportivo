@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>TODO supply a title</title>
+    </head>
+    <body>
+        <section class="mt-5 pt-5" th:fragment="miPerfil">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-header text-center p-2 bg-primary">
+                                <h2 class="text-light">Mi Perfil</h2>
+                            </div>
+                            <div class="card-body">
+                                <form method="POST" th:action="@{/usuario/perfil/actualizar}" th:object="${usuario}" class="was-validated" enctype="multipart/form-data">
+                                    <input type="hidden" name="idUsuario" th:field="*{idUsuario}"/>
+                                    <div class="card">
+                                        <div class="card-header align-items-center">
+                                            <h4>Activar Usuario</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label for="username">Usuario</label>
+                                                    <input type="text" class="form-control" name="username" th:field="*{username}" required="true"/>
+
+                                                    <label for="nombre">Nombre</label>
+                                                    <input type="text" class="form-control" name="nombre" th:field="*{nombre}" required="true"/>
+
+                                                    <label for="apellidos">Apellidos</label>
+                                                    <input type="text" class="form-control" name="apellidos" th:field="*{apellidos}" required="true"/>
+
+                                                    <label for="email">Correo Electrónico</label>
+                                                    <input type="email" class="form-control" name="correo" th:field="*{correo}" required="true"/>
+
+                                                    <label for="direccion">Linea Direccion 1</label>
+                                                    <input type="text" class="form-control" name="direccion" th:field="*{direccion}" required="true"/>
+                                                </div> 
+                                                <div class="col-md-6">
+                                                    <label for="direccion2">Linea Direccion 2</label>
+                                                    <input type="text" class="form-control" name="direccion2" th:field="*{direccion2}" required="true"/>
+                                                    <label for="provincia">Provincia</label>
+                                                    <input type="text" class="form-control" name="provincia" th:field="*{provincia}" required="true"/>
+                                                    <label for="canton">Canton</label>
+                                                    <input type="text" class="form-control" name="canton" th:field="*{canton}" required="true"/>
+                                                    <label for="distrito">Distrito</label>
+                                                    <input type="text" class="form-control" name="distrito" th:field="*{distrito}" required="true"/>
+                                                    <label for="telefono">Telefono</label>
+                                                    <input type="tel" class="form-control" name="telefono" th:field="*{telefono}"/>
+                                                </div>
+                                            </div>
+                                            <div class="text-center my-2">
+                                                <h4 class="py-3">Imagen</h4>
+                                                <div class="card">
+                                                    <input class="form-control" type="file" name="imagenFile" onchange="readURL(this);" />
+                                                    <div class="card-body">
+                                                        <img id="blah" th:src="@{${usuario.rutaImagen}}" alt="your image" height="200"/> 
+                                                        <input type="hidden" class="form-control" name="password" th:field="*{password}"/>
+                                                    </div>
+                                                    <div class="card-footer">
+                                                        <button type="submit" class="btn btn-danger">
+                                                            <i class="fas fa-check"></i> Modificar
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                             
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

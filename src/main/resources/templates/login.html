@@ -8,42 +8,41 @@
     <body>        
         <header th:replace="~{layout/plantilla :: header}"/>
         
-        
-        <div class="row m-5 pt-5 justify-content-md-center">
+        <div class="mt-5 pt-5"/>
+        <div class="row m-5 pt-5 justify-content-md-center mb-5 pb-5">
             <div class="col-md-4">
-                <div class="card">
-                    <div class="card-header bg-danger text-white text-center">
-                        <h2>Iniciar Sesion</h2>
-                    </div>
-                    <div class="card-body">
+                <div class="text-center">
+                    <h2 class="text-light">Iniciar Sesion</h2>
+                </div>
+                <div class="col">
                         <form method="POST" th:action="@{/login}">
                             <div class="row my-3 form-group">
-                                <label class="col-md-5" for="username"><i class="fas fa-user-lock"></i>Usuario</label>
+                                <label class="col-md-5 text-light" for="username"><i class="fas fa-user-lock"></i> Usuario</label>
                                 <input class='form-control' type="text" name="username"/>
                             </div>
                             <div class="row my-3 form-group">
-                                <label class="col-md-5" for="username">
+                                <label class="col-md-5 text-light" for="username">
                                     <i class="fas fa-user-lock"></i>
                                     Contraseña</label>
                                 <input class='form-control' type="password" name="password"/>
                             </div>
                             <div class="card-footer row text-center">
                                 
-                                <button type="submit" class="btn btn-danger">
-                                    <span class="btn text-light"><i class="fas fa-sign-in-alt"></i> Login</span>
+                                <button type="submit" class="btn btn-dark">
+                                    <span class="text-light"><i class="fas fa-sign-in-alt"></i> Login</span>
                                 </button>
-                                <div class="text-center my-2">
-                                    <a th:href="@{/registro/recordar}">Olvide mi contrasena</a>
+                                <div class="text-center my-2 d-grid">
+                                    <a class="btn btn-light text-dark" th:href="@{/registro/recordar}">Olvide mi contraseña</a>
                                 </div>
-                                <div class="my-2">
-                                    <a th:href="@{/registro/nuevo}">¿No tienes una cuenta? Registrate</a>
+                                <div class="my-2 d-grid">
+                                    <a class="btn btn-light text-dark" th:href="@{/registro/nuevo}">¿No tienes una cuenta? Registrate</a>
                                 </div>
                             </div>
                         </form>
-                    </div>
                 </div>
             </div>
         </div>
+        
         
       
         

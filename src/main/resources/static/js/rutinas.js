@@ -20,3 +20,9 @@ function addCard(formulario) {
     url = url + '/' + valor;
     $("#resultsBlock").load(url);
 }
+
+window.addEventListener('load', function() {
+    var loader = document.querySelector('.loader');
+    loader.style.display = 'none'; // Oculta el elemento de carga
+    document.querySelector('.content').style.opacity = '1'; // Muestra el contenido
+});

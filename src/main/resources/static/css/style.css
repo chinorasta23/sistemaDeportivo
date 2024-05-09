@@ -1,7 +1,43 @@
 body {
     font-family: 'Roboto', sans-serif;
+    background-image: url('https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTB8fHxlbnwwfHx8fHw%3D');
+
+}
+/*https://images5.alphacoders.com/133/thumb-1920-1338700.png */
+
+.nav-links:hover {
+    background-color: rgba(102, 102, 102, 0.5);
+    border-radius: 10px;
+}
+
+.bg-semitrans {
+    background-color: rgba(102, 102, 102, 0.5);
+    border-radius: 10px;
 }
 
 .text-light-opacity {
     color: rgba(255, 255, 255, 0.7);
+}
+
+.loader {
+    /* Estilos para el elemento de carga */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Empieza transparente */
+    }
+    to {
+        opacity: 1; /* Termina completamente visible */
+    }
+}
+
+.content {
+    opacity: 0; /* Empieza invisible */
+    animation: fadeIn 3s ease forwards; /* Animación para hacerlo aparecer suavemente */
+}
+
+.content-slow {
+    opacity: 0; /* Empieza invisible */
+    animation: fadeIn 7s ease forwards; /* Animación para hacerlo aparecer suavemente */
 }

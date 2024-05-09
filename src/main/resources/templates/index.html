@@ -3,90 +3,41 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
     <head th:replace="~{layout/plantilla :: head}">
-        <title>Topotec</title>
+        <title>Sistema Deportivo</title>
+
     </head>
     <body>
-        
+
         <header th:replace="~{layout/plantilla :: header}"/>
-        
-        <div>
-            <section class="bg-image" style="background-image: url('https://img.freepik.com/free-vector/topographic-map-background_23-2148583006.jpg?size=626&ext=jpg&ga=GA1.1.1395880969.1709251200&semt=ais');">
-                
-                <div class="mt-5 pt-5">
-                   <h2 class="text-center text-light">[[#{index.titulo}]]</h2> 
-                </div>
-                
-                <div class="container p-4">
-                    <div class="row">
-                        <div col-sm-12>
-                            <div class="row align-items-start m-2">
-                              <div class="col">
-                                  <img src="https://firebasestorage.googleapis.com/v0/b/proyectoweb-b8c8b.appspot.com/o/Topo-Tec%2Fimagenes%2Ftopotec-1.jpg?alt=media&token=ac992f43-0b9c-443a-808b-507795f5fc66" class="rounded mx-auto d-block w-20 h-20" alt="...">
-                              </div>
-                              <div class="col">
-                                  <img src="https://firebasestorage.googleapis.com/v0/b/proyectoweb-b8c8b.appspot.com/o/Topo-Tec%2Fimagenes%2Ftopotec-2.jpg?alt=media&token=06e65a6a-81fd-4d30-8bdf-64b778f8906f" class="rounded mx-auto d-block" alt="...">
-                              </div>
-                              <div class="col">
-                                  <img src="https://firebasestorage.googleapis.com/v0/b/proyectoweb-b8c8b.appspot.com/o/Topo-Tec%2Fimagenes%2Ftopotec-3.jpg?alt=media&token=f0ec7f19-e39c-4557-839a-e01fec3a0913" class="rounded mx-auto d-block" alt="...">
-                              </div>
-                            </div>
-                            <div class="m-5">
-                                <p class="text-light text-center">[[#{bg.info}]]</p>
-                            </div>
-                        </div>
+
+        <section class="mt-t pt-5 content-slow">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col text-center mt-3">
+                        <h2 class="text-light fs-1">Inicio</h2>
                     </div>
                 </div>
-            </section>
-
-            <section>
-                <div class="m-5">
-                    <div class="m-5">
-                        <h3 class="text-center">[[#{bg.nosotros}]]</h2>
-                    </div>
-
-
-                    <div class="container text-center">
-                      <div class="row">
-                        <div class="col">
-                            <hr class="text-black">
-                            <h5 class="card-title">[[#{index.mision}]]</h5>
-                            <p class="card-text">[[#{index.mision.data}]]</p>                       
-                        </div>
-                        <div class="col">
-                            <hr class="text-black">
-                            <h5 class="card-title">[[#{index.aniofunda}]]</h5>
-                            <p class="card-text">[[#{index.aniofunda.data}]]</p>
-                        </div>
-                        <div class="col">
-                            <hr class="text-black">
-                            <h5 class="card-title">[[#{index.vision}]]</h5>
-                            <p class="card-text">[[#{index.vision.data}]]</p>
-                        </div>
-                      </div>
+                <div class="row my-5"/>
+                <div class="row my-5"/>
+                <div class="row my-5"/>
+                <div class="row align-items-center mt-5">
+                    <p class="text-light text-center fs-4">
+                        En nuestra plataforma, podrás gestionar tu campeonato de fútbol de manera eficiente. Desde el registro de jugadores hasta la gestión de equipos y la organización del campeonato, todo está a tu alcance. ¡Únete ahora y lleva tu pasión por el fútbol al siguiente nivel!
+                    </p>
+                </div>
+                <div class="row text-center">
+                    <div class="col">
+                        <a class="btn btn-light text-dark" href="#">Más Acerca De</a>
                     </div>
                 </div>
-            </section>
-            
-            <section>
-                <div class="container text-center">
-                    <div class="text-black">
-                        <h2>[[#{index.xqelegirnos}]]</h2>
-                    </div>
-                    <div class="row m-5">   
-                        <div class="card">
-                            <div class="card-footer">
-                                <button class="btn btn-danger">
-                                    <a href="/nosotros" class="btn text-light">[[#{index.btn.acercade}]]</a>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
+            </div>
+                <div class="row my-5"/>
+                <div class="row my-5"/>
+                <div class="row my-5"/>
+                <div class="row my-4"/>
+        </section>
         
         <footer th:replace="~{layout/plantilla :: footer}"/>
-        
+
     </body>
 </html>
